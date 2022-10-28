@@ -6,7 +6,7 @@ let x = diametro;
 
 let raggio = diametro/2;
 
-let delta = 50;
+let delta = 5;
 
 
 function setup() {
