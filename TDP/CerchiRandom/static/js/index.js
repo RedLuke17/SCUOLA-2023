@@ -22,8 +22,9 @@ if(frameCount <= 1000)
     let r = random(0,255)
     let g = random(0,255)
     let b = random(0,255)
+    let a = random(0,255)
     noStroke();
-    fill(r, g, b)
+    fill(r, g, b, a)
     circle(x, y , diametro)
 }else
 {
