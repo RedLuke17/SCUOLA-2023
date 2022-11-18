@@ -8,5 +8,4 @@ function giorni(){
     }else{
         document.querySelector("#print").innerHTML = "non hai inserito nessun valore"
     }
-    
 }
