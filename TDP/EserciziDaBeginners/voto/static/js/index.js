@@ -1,5 +1,4 @@
 function votoCalc(voto){
-
     if( voto < 6.0 ){
         return "insufficiente"
     }
@@ -18,5 +17,5 @@ let inputVoto = document.querySelector("#voto1")
 inputVoto.addEventListener("submit" , function(e){
     e.preventDefault()
     let voti = document.querySelector("#voto").value;
-    let output = document.querySelector("#print").innerHTML = votoCalc(voti);
+    document.querySelector("#print").innerHTML = votoCalc(voti);
 })
