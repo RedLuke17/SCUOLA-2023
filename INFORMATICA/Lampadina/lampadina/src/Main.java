@@ -5,15 +5,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int maxClick = 0;
         int scelta = 0;
-        Lampadina lampadina = new Lampadina(maxClick);
 
         System.out.println("quanti click massimi può subire la lampadina?");
         maxClick = scanner.nextInt();
 
-
+        Lampadina lampadina = new Lampadina(maxClick);
 
         do {
-            System.out.println("[1]per accendere/spegnere la lampadina inserisci\n[2]per verificare lo stato inserisci");
+            System.out.println("[1]per accendere/spegnere la lampadina\n[2]per verificare lo stato\n[0]esci");
             scelta = scanner.nextInt();
             switch (scelta) {
                 case 1 -> {
@@ -25,12 +24,10 @@ public class Main {
                 }
             }
         }while(scelta > 0);
-
     }
 }
 
 class Lampadina {
-
     int click = 0;
     int maxClick;
     int contClick = 0;
