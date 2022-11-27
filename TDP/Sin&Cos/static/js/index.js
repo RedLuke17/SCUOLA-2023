@@ -13,7 +13,7 @@ function setup() {
 function draw() {
     strokeWeight(3);
     stroke(0,0,255);
-    let y2 = frequenza * ampiezza * cos(frequenza * angle + fase);
+    let y2 = ampiezza * cos(frequenza * angle + fase);
     point(angle,y2+200);
     stroke(255,0,0);
     let y = ampiezza * sin(frequenza * angle + fase);
