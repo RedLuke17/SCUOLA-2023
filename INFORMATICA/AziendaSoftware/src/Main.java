@@ -39,7 +39,7 @@ public class Main {
                 }
 
                 case 3: {
-
+                    
                 }
             }
         } while (scelta > 0);
