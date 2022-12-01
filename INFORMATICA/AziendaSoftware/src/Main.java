@@ -82,6 +82,5 @@ class Milestone {
 }
 
 class Task {
-
     int stato;
 }
