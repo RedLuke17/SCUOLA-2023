@@ -4,9 +4,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String nome = null;
+        Progetto progetto = new Progetto(nome);
         ArrayList<Integer> dipendenti = new ArrayList<>();
-        ArrayList<Milestone> milestone = new ArrayList<>();
-        int scelta, obbiettivi;
+        Task task = new Task();
+        int scelta;
 
 
         do {
@@ -16,30 +18,47 @@ public class Main {
                     "[0]esci");
             scelta = scanner.nextInt();
             switch (scelta) {
-                case 1: {
+                case 1 -> {
                     scelta = scanner.nextInt();
                     for (int i = 0; i < scelta ; i++ ) {
                         dipendenti.add(i);
                         System.out.println("dipendente "+dipendenti.get(i));
                     }
-                    break;
                 }
 
-                case 2: {
+                case 2 -> {
                     if( dipendenti.size() > 0 ) {
                         System.out.println("inserisci il numero di obbiettivi");
                         scelta = scanner.nextInt();
                         for (int i = 0 ; i < scelta ; i++ ) {
-                            milestone.size() ;
+                            progetto.milestones.add(new Milestone());
+                            System.out.println("Milestone: " + i);
                         }
                     }else {
                         System.out.println("inserisci prima un numero di dipendenti che aderiscono al progetto");
                     }
-                    break;
                 }
 
-                case 3: {
-                    
+                case 3 -> {
+                    if( progetto.milestones.size() > 0 ) {
+                        System.out.println("inserisci il numero del milestone");
+                        scelta = scanner.nextInt();
+                        if (scelta > progetto.milestones.size() - 1 ) {
+                            System.out.println("non esiste la milestone");
+                        } else {
+                            System.out.println("inserisci il numero delle task");
+                            int taskNumero = scanner.nextInt();
+                            for (int i = 0; i < taskNumero; i++) {
+                                progetto.milestones.get(scelta).tasks.add(new Task());
+                            }
+
+                            for (int i = 0; i < taskNumero; i++) {
+                                System.out.println("Task: " + i);
+                            }
+                        }
+                    } else {
+                        System.out.println("inserisci prima dei milestone");
+                    }
                 }
             }
         } while (scelta > 0);
@@ -47,16 +66,22 @@ public class Main {
 }
 
 class Progetto {
-    float andamento;
-    Milestone milestone = new Milestone();
+    String nome;
 
+    public Progetto(String nome) {
+        this.nome = nome;
+    }
+
+    float andamento;
+    ArrayList<Milestone> milestones = new ArrayList<>();
 }
 
 class Milestone {
     ArrayList<Task> tasks = new ArrayList<>();
-    float andamento;
+    float andamento = 0;
 }
 
 class Task {
+
     int stato;
 }
