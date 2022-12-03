@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+label {
+    margin: 30px 50px;
+}
