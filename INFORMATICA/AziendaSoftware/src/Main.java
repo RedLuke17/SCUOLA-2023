@@ -6,8 +6,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String nome = null;
         Progetto progetto = new Progetto(nome);
-        ArrayList<Integer> dipendenti = new ArrayList<>();
+        ArrayList<dipendente> dipendenti = new ArrayList<>();
         Task task = new Task();
+        int taskNumero, milestoneNumero, dipendenteNumero;
         int scelta;
 
 
@@ -15,14 +16,14 @@ public class Main {
             System.out.println("[1]dipendenti che partecipano al progetto\n" +
                     "[2]numero di milestone\n" +
                     "[3]numero di task per milestone\n" +
-                    "[0]esci");
+                    "[-1]esci");
             scelta = scanner.nextInt();
             switch (scelta) {
                 case 1 -> {
                     scelta = scanner.nextInt();
                     for (int i = 0; i < scelta ; i++ ) {
-                        dipendenti.add(i);
-                        System.out.println("dipendente "+dipendenti.get(i));
+                        dipendenti.add(new dipendente());
+                        System.out.println("dipendente "+i);
                     }
                 }
 
@@ -42,27 +43,54 @@ public class Main {
                 case 3 -> {
                     if( progetto.milestones.size() > 0 ) {
                         System.out.println("inserisci il numero del milestone");
-                        scelta = scanner.nextInt();
-                        if (scelta > progetto.milestones.size() - 1 ) {
+                        milestoneNumero = scanner.nextInt();
+                        if (milestoneNumero > progetto.milestones.size() - 1 ) {
                             System.out.println("non esiste la milestone");
                         } else {
-                            System.out.println("inserisci il numero delle task");
-                            int taskNumero = scanner.nextInt();
-                            for (int i = 0; i < taskNumero; i++) {
-                                progetto.milestones.get(scelta).tasks.add(new Task());
-                            }
+                            do {
+                                System.out.println(
+                                        "[1]inserisci il numero delle task\n" +
+                                        "[2]assegna task a un dipendente\n" +
+                                        "[0]esci"
+                                );
+                                scelta = scanner.nextInt();
+                                switch (scelta) {
+                                    case 1 -> {
+                                        taskNumero = scanner.nextInt();
+                                        for (int i = 0; i < taskNumero; i++) {
+                                            progetto.milestones.get(milestoneNumero).tasks.add(new Task());
+                                        }
+                                        for (int i = 0; i < taskNumero; i++) {
+                                            System.out.println("Task: " + i);
+                                        }
+                                    }
 
-                            for (int i = 0; i < taskNumero; i++) {
-                                System.out.println("Task: " + i);
-                            }
+                                    case 2 -> {
+                                        if ( progetto.milestones.get(milestoneNumero).tasks.size() > 0 ) {
+                                            System.out.println("inserisci il dipendente interessato");
+                                            dipendenteNumero = scanner.nextInt();
+                                            if (dipendenti.size() > 0)   {
+                                                dipendenti.get(dipendenteNumero);
+                                            }
+                                            System.out.println("inserisci la task da dargli");
+                                            taskNumero = scanner.nextInt();
+                                            dipendenti.get(dipendenteNumero).tasks.get(taskNumero);
+                                        }
+                                    }
+                                }
+                            }while (scelta > 0);
                         }
                     } else {
                         System.out.println("inserisci prima dei milestone");
                     }
                 }
             }
-        } while (scelta > 0);
+        } while (scelta >= 0);
     }
+}
+
+class dipendente {
+    ArrayList<Task> tasks = new ArrayList<>();
 }
 
 class Progetto {
@@ -82,6 +110,5 @@ class Milestone {
 }
 
 class Task {
-
     int stato;
 }
