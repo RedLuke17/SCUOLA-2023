@@ -4,15 +4,72 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String nome = null;
-        Progetto progetto = new Progetto(nome);
+        Progetto progetto = new Progetto();
         Task task = new Task();
         int taskNumero, milestoneNumero, dipendenteNumero;
         int scelta;
+        boolean occupazione;
 
 
         do {
-            System.out.println("[1]dipendenti che partecipano al progetto\n" +
+            scelta = scanner.nextInt();
+            switch (scelta){
+                case 1 -> {
+                    System.out.println("dipendenti");
+                    scelta = scanner.nextInt();
+                    for (int i = 0; i < scelta ; i++ ) {
+                        progetto.dipendenti.add(new dipendente());
+                        System.out.println("dipendente "+i);
+                    }
+
+                    System.out.println("milestone");
+                    scelta = scanner.nextInt();
+                    for (int i = 0 ; i < scelta ; i++ ) {
+                        progetto.milestones.add(new Milestone());
+                        System.out.println("Milestone: " + i);
+                    }
+
+                    System.out.println("numero milestone");
+                    milestoneNumero = scanner.nextInt();
+                    System.out.println("task");
+                    scelta = scanner.nextInt();
+                    for (int i = 0; i < scelta; i++) {
+                        progetto.milestones.get(milestoneNumero).tasks.add(new Task());
+                        System.out.println("Task: " + i);
+                    }
+
+                    System.out.println("numero milestone");
+                    milestoneNumero = scanner.nextInt();
+                    System.out.println("numero task");
+                    taskNumero = scanner.nextInt();
+                    System.out.println("numero dipendente");
+                    dipendenteNumero = scanner.nextInt();
+                    System.out.println("occupazione");
+                    occupazione = Boolean.parseBoolean(scanner.next());
+                    progetto.milestones.get(milestoneNumero).tasks.get(taskNumero).occupazione = occupazione;
+                    progetto.dipendenti.get(dipendenteNumero).occupazione = occupazione;
+                }
+                
+                case 2 -> {
+                    for (int i = 0; i < progetto.dipendenti.size(); i++) {
+                        System.out.println("dipendente " + i +  progetto.dipendenti.get(i).occupazione);
+                    }
+
+                    System.out.println("numero milestone");
+                    milestoneNumero = scanner.nextInt();
+                    for (int i = 0; i < progetto.milestones.get(milestoneNumero).tasks.size(); i++) {
+                        System.out.println("dipendente " + i +  progetto.dipendenti.get(i).occupazione);
+                    }
+                }
+            }
+            
+
+            
+
+
+
+
+            /*System.out.println("[1]dipendenti che partecipano al progetto\n" +
                     "[2]numero di milestone\n" +
                     "[3]numero di task per milestone\n" +
                     "[-1]esci");
@@ -92,21 +149,16 @@ public class Main {
                         System.out.println("inserisci prima dei milestone");
                     }
                 }
-            }
+            }*/
         } while (scelta >= 0);
     }
 }
 
 class dipendente {
-    ArrayList<Task> tasks = new ArrayList<>();
+    boolean occupazione;
 }
 
 class Progetto {
-    String nome;
-
-    public Progetto(String nome) {
-        this.nome = nome;
-    }
 
     float andamento;
     ArrayList<dipendente> dipendenti = new ArrayList<>();
@@ -114,11 +166,12 @@ class Progetto {
 }
 
 class Milestone {
-    ArrayList<dipendente> dipendenti = new ArrayList<>();
     ArrayList<Task> tasks = new ArrayList<>();
     float andamento = 0;
 }
 
 class Task {
+    ArrayList<dipendente> dipendenti = new ArrayList<>();
+    boolean occupazione;
     int stato;
 }
