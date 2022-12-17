@@ -1,7 +1,7 @@
 let w = 500;
 let h = 500;
 
-let grandezza = 20;
+let grandezza = 30;
 let x = 0;
 let y = 0;
 
@@ -13,12 +13,12 @@ function setup() {
 
 function draw() {
     stroke("white")
-    let x1 = random()
-    let y1 = random()
+    let x1 = random(-5,5)
+    let y1 = random(-5,5)
     if(random() < 0.5){
-        line(x, y, x, y + grandezza)
+        line(x + grandezza/2, y + grandezza, x1 + x + grandezza , y1 + grandezza + y)
     }else{
-        line(x, y + grandezza, x, y)
+        line(x + grandezza, y + grandezza, x1 + x + grandezza/2, y1+ y + grandezza)
     }
 
     x += grandezza

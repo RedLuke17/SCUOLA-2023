@@ -12,12 +12,18 @@ function setup() {
 }
 
 function draw() {
-    stroke("white")
+    noStroke()
 
     if(random() < 0.5){
-        triangle(x, y, x + grandezza, y + grandezza)
+        fill("white")
+        square(x,y,grandezza)
+        fill("red")
+        triangle(x+grandezza, y, x, y, x, y);
     }else{
-        triangle(x, y + grandezza, x + grandezza, y)
+        fill("black")
+        square(x,y,grandezza)
+        fill("red")
+        triangle(x+grandezza, y, x, y, x, y);
     }
 
     x += grandezza
@@ -29,9 +35,11 @@ function draw() {
 }
 
 let grandezzaInp = document.querySelector("#grandezza");
+
 grandezzaInp.addEventListener("input", function(e){
-    grandezza = parseInt(grandezzaInp.value);
+    e.preventDefault()
     background(220,58,0)
-    x=0
+    grandezza = parseInt(grandezzaInp.value);
     y=0
+    x=0
 })
