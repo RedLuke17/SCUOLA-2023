@@ -12,12 +12,18 @@ function setup() {
 }
 
 function draw() {
-    stroke("white")
+    noStroke()
 
     if(random() < 0.5){
-        line(x, y, x + grandezza, y + grandezza)
+        fill("white")
+        square(x,y,grandezza)
+        fill("black")
+        circle(x + grandezza/2 ,y + grandezza/2,grandezza/2)
     }else{
-        line(x, y + grandezza, x + grandezza, y)
+        fill("black")
+        square(x,y,grandezza)
+        fill("white")
+        circle(x + grandezza/2 ,y +grandezza/2,grandezza/2)
     }
 
     x += grandezza

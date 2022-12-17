@@ -13,11 +13,12 @@ function setup() {
 
 function draw() {
     stroke("white")
-
+    let x1 = random()
+    let y1 = random()
     if(random() < 0.5){
-        line(x, y, x + grandezza, y + grandezza)
+        line(x, y, x, y + grandezza)
     }else{
-        line(x, y + grandezza, x + grandezza, y)
+        line(x, y + grandezza, x, y)
     }
 
     x += grandezza

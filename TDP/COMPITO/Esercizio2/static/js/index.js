@@ -15,9 +15,9 @@ function draw() {
     stroke("white")
 
     if(random() < 0.5){
-        line(x, y, x + grandezza, y + grandezza)
+        triangle(x, y, x + grandezza, y + grandezza)
     }else{
-        line(x, y + grandezza, x + grandezza, y)
+        triangle(x, y + grandezza, x + grandezza, y)
     }
 
     x += grandezza
@@ -29,11 +29,9 @@ function draw() {
 }
 
 let grandezzaInp = document.querySelector("#grandezza");
-
-    grandezzaInp.addEventListener("input", function(e){
-    e.preventDefault()
-    background(220,58,0)
+grandezzaInp.addEventListener("input", function(e){
     grandezza = parseInt(grandezzaInp.value);
-    y=0
+    background(220,58,0)
     x=0
+    y=0
 })
