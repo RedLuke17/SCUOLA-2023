@@ -52,7 +52,7 @@ public class Main {
                 
                 case 2 -> {
                     for (int i = 0; i < progetto.dipendenti.size(); i++) {
-                        System.out.println("dipendente " + i +  progetto.dipendenti.get(i).occupazione);
+                        System.out.println("dipendente " + i +  (progetto.dipendenti.get(i).occupazione ? "Occupato" : "Non occupato"));
                     }
 
                     System.out.println("numero milestone");
