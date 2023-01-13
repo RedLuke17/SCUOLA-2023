@@ -6,6 +6,7 @@ function setup() {
 createCanvas(w, h);
 textSize(60);
 textAlign(CENTER);
+frameRate(1)
 }
 
 function draw() {

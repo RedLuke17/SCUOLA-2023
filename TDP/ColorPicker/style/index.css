@@ -1,0 +1,86 @@
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: "Russo One", sans-serif;
+    color: white;
+}
+
+h1 {
+    font-size: 78px;
+}
+
+p {
+    font-size: 22px;
+}
+
+body {
+    background-color: red;
+}
+
+.container {
+    width: 43%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.description {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 36px;
+}
+
+.bgColor {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.btn {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:active {
+    border: 3px solid black;
+}
+
+.color {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.red {
+    background-color: red;
+}
+
+.aqua {
+    background-color: aqua;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.yellow {
+    background-color: yellow;
+}
