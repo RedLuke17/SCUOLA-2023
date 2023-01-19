@@ -7,11 +7,14 @@ class Panino {
     int quantita;
     float prezzo;
 
-    public Panino(String codice, String descrizione, int quantita, float prezzo) {
+    int acconto;
+
+    public Panino(String codice, String descrizione, int quantita, float prezzo, int acconto) {
         this.codice = codice;
         this.descrizione = descrizione;
         this.quantita = quantita;
         this.prezzo = prezzo;
+        this.acconto = acconto;
     }
 }
 
@@ -20,11 +23,11 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Panino> panini = new ArrayList<>();
-        panini.add(new Panino("P1", "Big Mac", 5, 3.50f));
-        panini.add(new Panino("P2", "McChicken", 7, 2.50f));
-        panini.add(new Panino("P3", "Hamburger", 10, 1.50f));
-        panini.add(new Panino("P4", "McNuggets", 20, 4.50f));
-        panini.add(new Panino("P5", "Filet-O-Fish", 15, 3.00f));
+        panini.add(new Panino("P1", "Big Mac", 5, 3.50f, 0));
+        panini.add(new Panino("P2", "McChicken", 7, 2.50f, 0));
+        panini.add(new Panino("P3", "Hamburger", 10, 1.50f, 0));
+        panini.add(new Panino("P4", "McNuggets", 20, 4.50f, 0));
+        panini.add(new Panino("P5", "Filet-O-Fish", 15, 3.00f, 0));
 
 
         Scanner sc = new Scanner(System.in);
@@ -33,6 +36,7 @@ public class Main {
         float subTotale = 0f;
         float prezzo = 0f;
         float resto = 0f;
+        int[] array = new int[5];
 
         // Ciclo di esecuzione del programma
         while (true) {
@@ -41,6 +45,7 @@ public class Main {
             for (Panino panino : panini) {
                 System.out.printf("%s - %s - %.2f Euro - Disponibili: %d%n", panino.codice, panino.descrizione, panino.prezzo, panino.quantita);
                 subTotale = 0;
+                panino.acconto=0;
             }
 
             // Acquisto dei panini
@@ -69,6 +74,7 @@ public class Main {
                         quantita = sc.nextInt();
                         if(panino.quantita >= quantita){
                             panino.quantita -= quantita;
+                            panino.acconto += quantita;
                             System.out.printf("Hai acquistato %d %s per un totale di %.2f Euro%n", quantita, panino.descrizione, quantita * panino.prezzo);
                             subTotale = subTotale + quantita * panino.prezzo;
                             System.out.println(String.format("il sub totale da pagare è di: %.2f", subTotale));
@@ -80,31 +86,12 @@ public class Main {
                 }
             }
 
-            /*
-             while (true) {
-                System.out.print("Inserisci il codice del panino da acquistare (o premi Enter per uscire): ");
-                String codice = sc.nextLine();
-                if (codice.equals("")) {
-                    break;
-                }
-                System.out.print("Inserisci la quantità: ");
-                int quantita = Integer.parseInt(sc.nextLine());
-                for (Panino panino : panini) {
-                    if (panino.codice.equals(codice) && panino.quantita >= quantita) {
-                        panino.quantita -= quantita;
-                        System.out.println(String.format("Hai acquistato %d %s per un totale di %.2f Euro", quantita, panino.descrizione, quantita * panino.prezzo));
-                        break;
-                    }
-                }
-            }
-            * */
-
             // Visualizzazione dello scontrino
             System.out.println("Scontrino:");
             System.out.printf("Totale conto %.2f Euro%nImporto pagato: %.2f Euro%nResto %.2f%n",subTotale,prezzo,resto);
             for (Panino panino : panini) {
-                if (panino.quantita < panino.quantita) {
-                    System.out.printf("%s - %d x %.2f Euro = %.2f Euro%n", panino.descrizione, panino.quantita, panino.prezzo, panino.quantita * panino.prezzo);
+                if(panino.acconto > 0) {
+                    System.out.printf("%s - %d x %.2f Euro = %.2f Euro%n", panino.descrizione, panino.acconto, panino.prezzo, panino.acconto * panino.prezzo);
                 }
             }
         }
