@@ -36,7 +36,6 @@ public class Main {
         float subTotale = 0f;
         float prezzo = 0f;
         float resto = 0f;
-        int[] array = new int[5];
 
         // Ciclo di esecuzione del programma
         while (true) {
