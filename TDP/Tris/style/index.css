@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+}
+
+#container {
+    text-align: center;
+}
+
+h1  {
+    margin-top: 20px;
+    font-family: 'Faster One', cursive;
+    font-size: 128px;
+    font-weight: 400;
+}
+
+.score {
+    margin: auto;
+    max-width: 510px;
+    height: 99px;
+    margin-top: 6px;
+    margin-bottom: 23px;
+    display: flex;
+    align-items: center;
+    border: 2px solid #000000;
+    border-radius: 26px;
+    background-color: #D9D9D9;
+    justify-content: space-evenly;
+    letter-spacing: -4px;
+    font-family: 'Roboto Mono', monospace;
+    max-font-size: 64px;
+    font-weight: 400;
+    font-size: 64px;
+}
+
+.restartGame{
+    font-family: 'Rubik Mono One';
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 47px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    margin-bottom: 23px;
+    cursor: pointer;
+    max-width: 226px;
+}
+
+.tris {
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    position: absolute;
+    width: 510px;
+}
+
+.col div{
+    display: flex;
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    min-height: 150px;
+    background: #4287F5;
+    border: 10px solid #000000;
+}
