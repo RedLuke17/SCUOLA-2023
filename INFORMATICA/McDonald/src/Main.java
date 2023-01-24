@@ -20,6 +20,55 @@ class Panino {
 
 
 public class Main {
+
+    public static void shopping (Scanner sc, float subTotale, float prezzo, float resto, int quantita, ArrayList<Panino> panini) {
+        while (true) {
+            System.out.print("Inserisci il codice del panino da acquistare (premi 0 per pagare): ");
+            String codice = sc.next();
+            if (codice.equals("0")) {
+                if (subTotale != 0){
+                    prezzo = sc.nextFloat();
+                    while(prezzo < subTotale) {
+                        System.out.println("non abbastanza soldi");
+                        prezzo = sc.nextFloat();
+                    }
+                    resto = prezzo - subTotale;
+                    System.out.println(String.format("il resto è %.2f",resto));
+                    break;
+                } else {
+                    System.out.println("non ce nessun ordine");
+                }
+            }
+
+
+            for (Panino panino : panini) {
+                if (panino.codice.equals(codice)) {
+                    System.out.print("Inserisci la quantità: ");
+                    quantita = sc.nextInt();
+                    if(panino.quantita >= quantita){
+                        panino.quantita -= quantita;
+                        panino.acconto += quantita;
+                        System.out.printf("Hai acquistato %d %s per un totale di %.2f Euro%n", quantita, panino.descrizione, quantita * panino.prezzo);
+                        subTotale = subTotale + quantita * panino.prezzo;
+                        System.out.println(String.format("il sub totale da pagare è di: %.2f", subTotale));
+                        break;
+                    }else {
+                        System.out.println("le scorte sono esaurite");
+                    }
+                }
+            }
+        }
+    }
+
+    public static void scontrino(ArrayList<Panino> panini, float subTotale, float prezzo, float resto){
+        System.out.println("Scontrino:");
+        System.out.printf("Totale conto %.2f Euro%nImporto pagato: %.2f Euro%nResto %.2f%n",subTotale,prezzo,resto);
+        for (Panino panino : panini) {
+            if(panino.acconto > 0) {
+                System.out.printf("%s - %d x %.2f Euro = %.2f Euro%n", panino.descrizione, panino.acconto, panino.prezzo, panino.acconto * panino.prezzo);
+            }
+        }
+    }
     public static void main(String[] args) {
 
         ArrayList<Panino> panini = new ArrayList<>();
@@ -48,51 +97,11 @@ public class Main {
             }
 
             // Acquisto dei panini
-            while (true) {
-                System.out.print("Inserisci il codice del panino da acquistare (premi 0 per pagare): ");
-                String codice = sc.next();
-                if (codice.equals("0")) {
-                    if (subTotale != 0){
-                        prezzo = sc.nextFloat();
-                        while(prezzo < subTotale) {
-                            System.out.println("non abbastanza soldi");
-                            prezzo = sc.nextFloat();
-                        }
-                        resto = prezzo - subTotale;
-                        System.out.println(String.format("il resto è %.2f",resto));
-                        break;
-                    } else {
-                        System.out.println("non ce nessun ordine");
-                    }
-                }
+            shopping(sc, subTotale, prezzo, resto, quantita,  panini);
 
-
-                for (Panino panino : panini) {
-                    if (panino.codice.equals(codice)) {
-                        System.out.print("Inserisci la quantità: ");
-                        quantita = sc.nextInt();
-                        if(panino.quantita >= quantita){
-                            panino.quantita -= quantita;
-                            panino.acconto += quantita;
-                            System.out.printf("Hai acquistato %d %s per un totale di %.2f Euro%n", quantita, panino.descrizione, quantita * panino.prezzo);
-                            subTotale = subTotale + quantita * panino.prezzo;
-                            System.out.println(String.format("il sub totale da pagare è di: %.2f", subTotale));
-                            break;
-                        }else {
-                            System.out.println("le scorte sono esaurite");
-                        }
-                    }
-                }
-            }
 
             // Visualizzazione dello scontrino
-            System.out.println("Scontrino:");
-            System.out.printf("Totale conto %.2f Euro%nImporto pagato: %.2f Euro%nResto %.2f%n",subTotale,prezzo,resto);
-            for (Panino panino : panini) {
-                if(panino.acconto > 0) {
-                    System.out.printf("%s - %d x %.2f Euro = %.2f Euro%n", panino.descrizione, panino.acconto, panino.prezzo, panino.acconto * panino.prezzo);
-                }
-            }
+            scontrino(panini, subTotale, prezzo, resto);
         }
     }
 }
