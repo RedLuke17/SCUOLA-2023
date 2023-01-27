@@ -19,37 +19,62 @@
 </head>
 <body>
     <form id="mainForm">
-        <div id="container">
-            <h1>Tic Tac Toe</h1>
-            <div class="score">
-                <h2>X:0</h2>
-                <p>score</p>
-                <h2>O:0</h2>
-            </div>
+        <!--     <div id="container">
+                <h1>Tic Tac Toe</h1>
+                <div class="score">
+                    <h2>X:0</h2>
+                    <p>score</p>
+                    <h2>O:0</h2>
+                </div>
 
-            <div class="restartGame">
-                <p>RESTART</p>
-                <p>GAME</p>
-            </div>
+                <div class="restartGame">
+                    <p>RESTART</p>
+                    <p>GAME</p>
+                </div>
 
-            <div class="tris">
-                <div class="col">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <div class="tris">
+                    <div class="col">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="col">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="col">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
-                <div class="col">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="col">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+
+            <div id="game">
+
+
+        </div> -->
+
+        <div id="game">
+            <div class="board">
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
             </div>
+            <div id="result"></div>
+            <div id="score">
+                <p>Player X: <span id="score-x">0</span></p>
+                <p>Player O: <span id="score-o">0</span></p>
+            </div>
+            <button id="restart-btn">Restart</button>
         </div>
+
     </form>
     <script src="./static/libs/p5js/p5.min.js"></script>
     <script src="./static/js/index.js"></script>
