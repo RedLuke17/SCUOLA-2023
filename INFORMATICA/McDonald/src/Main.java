@@ -6,7 +6,6 @@ class Panino {
     String descrizione;
     int quantita;
     float prezzo;
-
     int acconto;
 
     public Panino(String codice, String descrizione, int quantita, float prezzo, int acconto) {
@@ -21,8 +20,15 @@ class Panino {
 
 public class Main {
 
-    public static void shopping(float subTotale, Scanner sc, float prezzo, float resto, int quantita, ArrayList<Panino> panini) {
 
+    public static void scontrino(ArrayList<Panino> panini, float subTotale, float prezzo, float resto){
+        System.out.println("Scontrino:");
+        System.out.printf("Totale conto %.2f Euro%nImporto pagato: %.2f Euro%nResto %.2f%n",subTotale,prezzo,resto);
+        for (Panino panino : panini) {
+            if(panino.acconto > 0) {
+                System.out.printf("%s - %d x %.2f Euro = %.2f Euro%n", panino.descrizione, panino.acconto, panino.prezzo, panino.acconto * panino.prezzo);
+            }
+        }
     }
     public static void main(String[] args) {
 
@@ -40,7 +46,6 @@ public class Main {
         float subTotale = 0f;
         float prezzo = 0f;
         float resto = 0f;
-        int[] array = new int[5];
 
         // Ciclo di esecuzione del programma
         while (true) {
@@ -90,14 +95,9 @@ public class Main {
                 }
             }
 
+
             // Visualizzazione dello scontrino
-            System.out.println("Scontrino:");
-            System.out.printf("Totale conto %.2f Euro%nImporto pagato: %.2f Euro%nResto %.2f%n",subTotale,prezzo,resto);
-            for (Panino panino : panini) {
-                if(panino.acconto > 0) {
-                    System.out.printf("%s - %d x %.2f Euro = %.2f Euro%n", panino.descrizione, panino.acconto, panino.prezzo, panino.acconto * panino.prezzo);
-                }
-            }
+            scontrino(panini, subTotale, prezzo, resto);
         }
     }
 }
