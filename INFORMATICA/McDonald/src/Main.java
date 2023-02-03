@@ -20,6 +20,10 @@ class Panino {
 
 
 public class Main {
+
+    public static void shopping(float subTotale, Scanner sc, float prezzo, float resto, int quantita, ArrayList<Panino> panini) {
+
+    }
     public static void main(String[] args) {
 
         ArrayList<Panino> panini = new ArrayList<>();
