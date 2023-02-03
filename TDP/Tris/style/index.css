@@ -1,4 +1,4 @@
-/* * {
+* {
     margin: 0;
 }
 
@@ -25,14 +25,12 @@ h1  {
     border-radius: 26px;
     background-color: #D9D9D9;
     justify-content: space-evenly;
-    letter-spacing: -4px;
     font-family: 'Roboto Mono', monospace;
-    max-font-size: 64px;
     font-weight: 400;
     font-size: 64px;
 }
 
-.restartGame{
+.restart-btn{
     font-family: 'Rubik Mono One';
     font-weight: 400;
     font-size: 38px;
@@ -46,24 +44,36 @@ h1  {
 }
 
 .tris {
-    left: 50%;
-    transform: translateX(-50%);
+    margin: auto;
     display: flex;
-    position: absolute;
     width: 510px;
 }
 
-.col div{
+.col .square{
     display: flex;
-    max-width: 150px;
-    min-width: 150px;
-    max-height: 150px;
-    min-height: 150px;
+}
+
+.square {
+    width: 150px;
+    height: 150px;
     background: #4287F5;
     border: 10px solid #000000;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    font-weight: bold;
+    transition: all 0.4s;
 }
- */
 
+.square:hover{
+    background-color: rgb(13, 14, 90);
+    transition: all 0.4s;
+    border-radius: 14%;
+    color: red;
+    font-size: 120px;
+}
+
+/*
 #game {
     display: flex;
     flex-wrap: wrap;
@@ -120,3 +130,4 @@ h1  {
 #restart-btn {
     margin-top: 10px;
 }
+*/
