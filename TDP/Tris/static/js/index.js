@@ -1,5 +1,6 @@
-const squares = document.querySelectorAll('.square');
-let currentPlayer = 'X';
+let player = "X";
+let squares = document.querySelectorAll(".square");
+let restart = document.querySelector(".restart-btn")
 let gameOver = false;
 const winningCombinations = [
     [0, 1, 2],
@@ -17,69 +18,42 @@ const scoreX = document.getElementById('score-x');
 const scoreO = document.getElementById('score-o');
 let xScore = 0;
 let oScore = 0;
+let scoreX;
+let scoreO = 0;
 
-for (let i = 0; i < squares.length; i++) {
-    squares[i].addEventListener('click', function(e) {
-        if (!gameOver) {
-            if (e.target.textContent === '') {
-                e.target.textContent = currentPlayer;
-                checkForWin();
-                checkForTie();
+
+for (let i = 0; i < squares.length; i++)
+{
+    squares[i].addEventListener("click", function(e) {
+        if(gameOver == false)
+        {
+            if(squares[i].textContent == "")
+            {
+                squares[i].innerHTML = player;
                 switchPlayer();
             }
         }
     });
 }
 
-
-function checkForWin() {
-    for (let i = 0; i < winningCombinations.length; i++) {
-        const [a, b, c] = winningCombinations[i];
-        if (squares[a].textContent === currentPlayer && squares[b].textContent === currentPlayer && squares[c].textContent === currentPlayer) {
-            result.textContent = `Player ${currentPlayer} wins!`;
-            gameOver = true;
-            if (currentPlayer === 'X') {
-                xScore++;
-                x++;
-                scoreX.textContent = x;
-            } else {
-                oScore++;
-                o++;
-                scoreO.textContent = o;
-            }
-        }
+function switchPlayer()
+{
+    if (player === "X")
+    {
+        player = "O";
+        document.querySelector(".scoreO").innerHTML = "O:"+scoreO++;
+    } else
+    {
+        player = "X";
     }
 }
 
-
-function checkForTie() {
-    let openSquares = 0;
-    for (let i = 0; i < squares.length; i++) {
-        if (squares[i].textContent === '') {
-            openSquares++;
-        }
+restart.addEventListener("click", function(e)
+{
+    for (let i = 0; i < squares.length; i++)
+    {
+        squares[i].innerHTML = "";
     }
-    if (openSquares === 0 && !gameOver) {
-        result.textContent = 'Its a tie!';
-        gameOver = true;
-    }
-}
-
-function switchPlayer() {
-    if (currentPlayer === 'X') {
-        currentPlayer = 'O';
-    } else {
-        currentPlayer = 'X';
-    }
-}
-
-restartBtn.addEventListener('click', function() {
-    for (let i = 0; i < squares.length; i++) {
-        squares[i].textContent = '';
-    }
-    x++;
-    result.textContent = '';
+    player = "X";
     gameOver = false;
-    currentPlayer = 'X';
 });
-

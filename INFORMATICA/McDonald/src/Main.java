@@ -6,7 +6,6 @@ class Panino {
     String descrizione;
     int quantita;
     float prezzo;
-
     int acconto;
 
     public Panino(String codice, String descrizione, int quantita, float prezzo, int acconto) {
