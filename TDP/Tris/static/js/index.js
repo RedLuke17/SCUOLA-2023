@@ -17,8 +17,6 @@ const scoreX = document.getElementById('score-x');
 const scoreO = document.getElementById('score-o');
 let xScore = 0;
 let oScore = 0;
-let x = 0;
-let o = 0;
 
 for (let i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function(e) {
