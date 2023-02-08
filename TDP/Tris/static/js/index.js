@@ -24,8 +24,6 @@ for (let i = 0; i < squares.length; i++)
             if(squares[i].innerHTML === "")
             {
                 squares[i].innerHTML = player;
-                switchPlayer();
-
                 for (let i = 0; i < winningCombinations.length; i++) {
                     let a = winningCombinations[i][0];
                     let b = winningCombinations[i][1];
@@ -43,6 +41,7 @@ for (let i = 0; i < squares.length; i++)
                         }
                     }
                 }
+                switchPlayer();
             }
         }
     });
