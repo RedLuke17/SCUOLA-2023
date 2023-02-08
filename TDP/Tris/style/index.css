@@ -72,3 +72,30 @@ h1  {
     color: red;
     font-size: 120px;
 }
+
+@media screen and (max-width: 480px) {
+    
+    h1 {
+        font-size: 70px;
+    }
+
+    .score {
+        height: 47px;
+        font-size: 32px;
+    }
+
+    .restart-btn {
+        max-width: 120px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .tris {
+        width: 330px;
+    }
+
+    .square {
+        width: 90px;
+        height: 90px;
+    }
+}
