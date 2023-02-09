@@ -1,9 +1,12 @@
 let player = "X";
 let squares = document.querySelectorAll(".square");
-let restart = document.querySelector(".restart-btn")
+let restart = document.querySelector(".restart-btn");
 let gameOver = false;
 let scoreX = 0;
 let scoreO = 0;
+let display = document.querySelector(".display-winning");
+let content = document.querySelector(".content");
+let close = document.querySelector(".close");
 let winningCombinations = [
     [0, 1, 2],
     [3, 4, 5],
@@ -32,10 +35,14 @@ for (let i = 0; i < squares.length; i++)
                         gameOver = true;
                         if(player === "X")
                         {
+                            content.innerHTML = "X wins!";
+                            display.classList.add("show");
                             scoreX++
                             document.querySelector(".scoreX").innerHTML = scoreX;
                         } else
                         {
+                            content.innerHTML = "O wins!";
+                            display.classList.add("show");
                             scoreO++
                             document.querySelector(".scoreO").innerHTML = scoreO;
                         }
@@ -66,4 +73,9 @@ restart.addEventListener("click", function(e)
     }
     player = "X";
     gameOver = false;
+    display.classList.remove("show");
+});
+
+close.addEventListener("click", function(e){
+    display.classList.remove("show");
 });
