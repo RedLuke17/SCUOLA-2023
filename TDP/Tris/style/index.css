@@ -44,6 +44,7 @@ h1  {
 }
 
 .tris {
+    position: relative;
     margin: auto;
     display: flex;
     width: 510px;
@@ -76,9 +77,9 @@ h1  {
 .display-winning {
     font-family: 'Rubik Mono One';
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,-40%);
+    transform: translate(-50%,-50%);
     width: 350px;
     height: 250px;
     background-color: rgba(224, 224, 224, .6);
