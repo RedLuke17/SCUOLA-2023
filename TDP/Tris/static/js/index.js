@@ -7,6 +7,9 @@ let scoreO = 0;
 let display = document.querySelector(".display-winning");
 let content = document.querySelector(".content");
 let close = document.querySelector(".close");
+let menuClosed = document.querySelector(".close-menu");
+let menu = document.querySelector(".menu");
+let changeMode = document.querySelector(".change-mode")
 let winningCombinations = [
     [0, 1, 2],
     [3, 4, 5],
@@ -54,8 +57,7 @@ for (let i = 0; i < squares.length; i++)
     });
 }
 
-function switchPlayer()
-{
+function switchPlayer() {
     if (player === "X")
     {
         player = "O";
@@ -79,3 +81,17 @@ restart.addEventListener("click", function(e)
 close.addEventListener("click", function(e){
     display.classList.remove("show");
 });
+
+menuClosed.addEventListener("click", function(e){
+    menu.classList.add("closed");
+});
+
+changeMode.addEventListener("click", function(e){
+    menu.classList.remove("closed");
+})
+
+menu.addEventListener("click", function(e){
+    if (display.classList.contains("menu closed")){
+        display.classList.remove("closed");
+    }
+})
