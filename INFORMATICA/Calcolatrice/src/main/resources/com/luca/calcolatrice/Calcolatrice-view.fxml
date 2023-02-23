@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefWidth="250.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.luca.calcolatrice.CalcolatriceController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="369.0" style="-fx-border-color: black; -fx-border-insets: 0;">
+      <children>
+          <Label fx:id="content" contentDisplay="CENTER" text="Giglo" />
+      </children>
+   </HBox>
+    <GridPane>
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+        </rowConstraints>
+        <Button fx:id="CE" mnemonicParsing="false" text="CE" />
+        <Button fx:id="C" mnemonicParsing="false" text="C" GridPane.columnIndex="1" />
+        <Button fx:id="radical" mnemonicParsing="false" text="√" GridPane.columnIndex="2" />
+        <Button fx:id="power" mnemonicParsing="false" text="x^y" GridPane.columnIndex="3" />
+        <Button fx:id="seven" mnemonicParsing="false" text="7" GridPane.rowIndex="1" />
+        <Button fx:id="eight" mnemonicParsing="false" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button fx:id="nine" mnemonicParsing="false" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Button fx:id="division" mnemonicParsing="false" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <Button fx:id="four" mnemonicParsing="false" text="4" GridPane.rowIndex="2" />
+        <Button fx:id="five" mnemonicParsing="false" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button fx:id="six" mnemonicParsing="false" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Button fx:id="multiplication" mnemonicParsing="false" text="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <Button fx:id="one" mnemonicParsing="false" text="1" GridPane.rowIndex="3" />
+        <Button fx:id="two" mnemonicParsing="false" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Button fx:id="three" mnemonicParsing="false" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Button fx:id="minus" mnemonicParsing="false" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+        <Button fx:id="decimal" mnemonicParsing="false" text="." GridPane.rowIndex="4" />
+        <Button fx:id="zero" mnemonicParsing="false" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Button fx:id="equals" mnemonicParsing="false" text="=" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <Button fx:id="plus" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+    </GridPane>
+</VBox>
