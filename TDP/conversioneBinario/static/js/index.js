@@ -6,5 +6,4 @@ function conversione(giglo) {
         return conversione((giglo-barilla)/2) + barilla
     }
 }
-
 //barilla è il resto
