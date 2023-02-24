@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefWidth="250.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.luca.calcolatrice.CalcolatriceController">
+<VBox alignment="CENTER" prefHeight="350.0" prefWidth="250.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.luca.calcolatrice.CalcolatriceController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -27,25 +27,25 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
-        <Button fx:id="CE" mnemonicParsing="false" text="CE" />
-        <Button fx:id="C" mnemonicParsing="false" text="C" GridPane.columnIndex="1" />
-        <Button fx:id="radical" mnemonicParsing="false" text="√" GridPane.columnIndex="2" />
-        <Button fx:id="power" mnemonicParsing="false" text="x^y" GridPane.columnIndex="3" />
-        <Button fx:id="seven" mnemonicParsing="false" text="7" GridPane.rowIndex="1" />
-        <Button fx:id="eight" mnemonicParsing="false" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Button fx:id="nine" mnemonicParsing="false" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-        <Button fx:id="division" mnemonicParsing="false" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <Button fx:id="four" mnemonicParsing="false" text="4" GridPane.rowIndex="2" />
-        <Button fx:id="five" mnemonicParsing="false" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Button fx:id="six" mnemonicParsing="false" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-        <Button fx:id="multiplication" mnemonicParsing="false" text="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-        <Button fx:id="one" mnemonicParsing="false" text="1" GridPane.rowIndex="3" />
-        <Button fx:id="two" mnemonicParsing="false" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <Button fx:id="three" mnemonicParsing="false" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-        <Button fx:id="minus" mnemonicParsing="false" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-        <Button fx:id="decimal" mnemonicParsing="false" text="." GridPane.rowIndex="4" />
-        <Button fx:id="zero" mnemonicParsing="false" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <Button fx:id="equals" mnemonicParsing="false" text="=" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-        <Button fx:id="plus" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+        <Button fx:id="CE" mnemonicParsing="false" prefHeight="38.0" prefWidth="52.0" text="CE" />
+        <Button fx:id="C" mnemonicParsing="false" prefHeight="51.0" prefWidth="89.0" text="C" GridPane.columnIndex="1" />
+        <Button fx:id="radical" mnemonicParsing="false" prefHeight="69.0" prefWidth="143.0" text="√" GridPane.columnIndex="2" />
+        <Button fx:id="power" mnemonicParsing="false" prefHeight="53.0" prefWidth="91.0" text="x^y" GridPane.columnIndex="3" />
+        <Button fx:id="seven" mnemonicParsing="false" prefHeight="62.0" prefWidth="91.0" text="7" GridPane.rowIndex="1" />
+        <Button fx:id="eight" mnemonicParsing="false" prefHeight="74.0" prefWidth="105.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button fx:id="nine" mnemonicParsing="false" prefHeight="56.0" prefWidth="94.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Button fx:id="division" mnemonicParsing="false" prefHeight="71.0" prefWidth="141.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <Button fx:id="four" mnemonicParsing="false" prefHeight="41.0" prefWidth="96.0" text="4" GridPane.rowIndex="2" />
+        <Button fx:id="five" mnemonicParsing="false" prefHeight="73.0" prefWidth="132.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button fx:id="six" mnemonicParsing="false" prefHeight="79.0" prefWidth="141.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Button fx:id="multiplication" mnemonicParsing="false" prefHeight="55.0" prefWidth="135.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <Button fx:id="one" mnemonicParsing="false" prefHeight="37.0" prefWidth="55.0" text="1" GridPane.rowIndex="3" />
+        <Button fx:id="two" mnemonicParsing="false" prefHeight="68.0" prefWidth="96.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Button fx:id="three" mnemonicParsing="false" prefHeight="108.0" prefWidth="162.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Button fx:id="minus" mnemonicParsing="false" prefHeight="44.0" prefWidth="81.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+        <Button fx:id="decimal" mnemonicParsing="false" prefHeight="59.0" prefWidth="105.0" text="." GridPane.rowIndex="4" />
+        <Button fx:id="zero" mnemonicParsing="false" prefHeight="66.0" prefWidth="82.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Button fx:id="equals" mnemonicParsing="false" prefHeight="64.0" prefWidth="96.0" text="=" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <Button fx:id="plus" mnemonicParsing="false" prefHeight="105.0" prefWidth="162.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
     </GridPane>
 </VBox>

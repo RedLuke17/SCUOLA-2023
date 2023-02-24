@@ -29,8 +29,7 @@ public class CalcolatriceModel {
 
         if (symbol.matches("\\d")) {
             if (displayMatcher.find()){
-                displayContent = "";
-            }
+                displayContent = "";            }
 
             content += symbol;
             displayContent += symbol;
