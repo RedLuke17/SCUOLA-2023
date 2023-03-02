@@ -78,6 +78,8 @@ public class CalcolatriceController {
     private Button plus;
 
 
+
+    //funzione che inizializza tutti i pulsanti presenti nella calcolatrice
     @FXML
     private void initialize() {
         ArrayList<Button> buttons = new ArrayList<>(){
@@ -109,10 +111,13 @@ public class CalcolatriceController {
 
 
         for (Button button: buttons) {
+            //addEventListener per i bottoni
             button.setOnAction(actionEvent -> {
                 Button clickedButton = (Button) actionEvent.getSource();
+
+                //funzione che mostra il contenuto, usando il metodo button della classe Model che eseguisce le operazioni
                 updateData(calcolatriceModel.button(clickedButton.getText()));
-                System.out.println(clickedButton.getText());
+                //System.out.println(clickedButton.getText());
             });
         }
     }
