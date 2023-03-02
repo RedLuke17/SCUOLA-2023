@@ -18,7 +18,7 @@ public class CalcolatriceModel {
 
         //compila la regex
         final Pattern pattern = Pattern.compile(symbols);
-        
+
         final Matcher displayMatcher = pattern.matcher(displayContent);
 
         final Matcher symbolMatcher = pattern.matcher(symbol);
