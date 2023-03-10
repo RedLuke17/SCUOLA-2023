@@ -28,8 +28,6 @@ public class CalcolatriceController {
     private Button radical;
 
     @FXML
-    private Button power;
-    @FXML
     private Button seven;
 
     @FXML
@@ -87,7 +85,6 @@ public class CalcolatriceController {
                 add(CE);
                 add(C);
                 add(radical);
-                add(power);
                 add(division);
                 add(multiplication);
                 add(minus);
@@ -111,7 +108,7 @@ public class CalcolatriceController {
 
 
         for (Button button: buttons) {
-            //addEventListener per i bottoni
+            //addEventListener per i pulsanti
             button.setOnAction(actionEvent -> {
                 Button clickedButton = (Button) actionEvent.getSource();
 

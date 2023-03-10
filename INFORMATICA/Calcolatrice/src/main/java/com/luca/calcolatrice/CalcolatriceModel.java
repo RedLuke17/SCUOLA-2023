@@ -42,7 +42,7 @@ public class CalcolatriceModel {
         //controlla se ci sono dei numeri
         if (symbol.matches("\\d")) {
 
-            //controlla se non c'è nulla nel display allora non fa nulla
+            //controlla se sta un operando e se c'è lo toglie
             if (displayMatcher.find()){
                 displayContent = "";
             }
@@ -87,7 +87,7 @@ public class CalcolatriceModel {
 
         for (String token : tokens) {
 
-            //controlla se ci sono numeri
+            //controlla se ci sono numeri con il punto
             if (token.matches("\\d+\\.?\\d*")) {
                 numeri.push(Double.parseDouble(token));
             } else if (isOperator(token.charAt(0))) {
@@ -140,8 +140,6 @@ public class CalcolatriceModel {
                     throw new ArithmeticException("Cannot divide by zero");
                 }
                 return b / a;
-            case '^':
-                return Math.pow(b, a);
             case '√':
                 return Math.pow(b, 1 / a);
             default:
