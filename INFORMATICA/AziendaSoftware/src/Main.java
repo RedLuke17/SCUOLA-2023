@@ -1,3 +1,4 @@
+import java.net.SocketOption;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,8 +11,11 @@ class Progetto {
     int giorni;
     ArrayList<Milestone> milestones = new ArrayList<>();
 
-    public Progetto(String nome, ArrayList<Dipendente> dipendenti) {
+    public Progetto(String nome) {
         this.nome = nome;
+    }
+
+    public Progetto(ArrayList<Dipendente> dipendenti) {
         this.dipendenti = dipendenti;
     }
 
@@ -76,6 +80,7 @@ class Azienda {
     void aggiungiProgetto() {
         System.out.println("[0]esci\nInserisci il nome del progetto");
         String nome = Main.scanner.next();
+        progetto = new Progetto(nome);
         System.out.println("Inserisci i dipendenti che lavoreranno a questo progetto");
         for (int i = 0 ; i < dipendenti.size() ; i++) {
             System.out.printf("\n[%d]%s %s\n", i+1, dipendenti.get(i).nome, dipendenti.get(i).cognome);
@@ -92,7 +97,7 @@ class Azienda {
             }
         } while( scelta != 0 );
 
-        progetto = new Progetto(nome, dipendenti);
+        progetto = new Progetto(dipendenti);
     }
 }
 
@@ -116,12 +121,46 @@ public class Main {
                 }
 
                 case 2 -> {
-                    azienda.aggiungiProgetto();
-                    azienda.progetto.infoProgetto();
+                    if (azienda.progetto == null) {
+                        azienda.aggiungiProgetto();
+                        azienda.progetto.infoProgetto();
+                    } else {
+                        System.out.println("Esiste gia un progetto");
+                    }
                 }
 
                 case 3 -> {
+                    if (azienda.progetto == null) {
+                        System.out.println("SOS");
+                        break;
+                    }
 
+                    int sceltaProgetto;
+                    do {
+                        System.out.printf("\n[0]esci\n[1]info\n[2]aggiungi dipendenti\n[3]milestone\n[4]task\n[5]giorno\n[6]completa task\n");
+                        sceltaProgetto = scanner.nextInt();
+                        switch (sceltaProgetto) {
+                            case 1 -> {
+                                azienda.progetto.infoProgetto();
+                            }
+                            case 2 -> {
+                                System.out.println("[0]esci\nInserisci i dipendenti che lavoreranno a questo progetto");
+                                for (int i = 0 ; i < azienda.dipendenti.size() ; i++) {
+                                    System.out.printf("\n[%d]%s %s\n", i+1, azienda.dipendenti.get(i).nome, azienda.dipendenti.get(i).cognome);
+                                }
+                                ArrayList<Dipendente> dipendenti = new ArrayList<>();
+                                int sceltaDipendente;
+                                do {
+                                    sceltaDipendente = Main.scanner.nextInt();
+                                    if ( sceltaDipendente != 0 ) {
+                                        dipendenti.add(azienda.dipendenti.get(sceltaDipendente-1));
+                                    }
+                                    azienda.progetto = new Progetto(dipendenti);
+                                    azienda.progetto.infoProgetto();
+                                } while( sceltaDipendente != 0 );
+                            }
+                        }
+                    } while (sceltaProgetto != 0);
                 }
             }
 
