@@ -8,7 +8,7 @@ public class CalcolatriceModel {
     //mostra il contenuto dell'operazione
     private String displayContent = "";
 
-    //conserva tutta lìoperazione
+    //conserva tutta loperazione
     private String content = "";
 
     //funzione che controlla che tipo di pulsante è stato cliccato
