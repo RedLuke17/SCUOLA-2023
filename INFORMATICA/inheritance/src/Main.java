@@ -86,7 +86,7 @@ public class Main {
                 }
             }
         }
-        
+
         for (Dipendente dipendente : dipendenti) {
             dipendente.visualizza();
         }
