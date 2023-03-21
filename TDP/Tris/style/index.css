@@ -124,11 +124,19 @@ h1  {
     background-color: cornflowerblue;
 }
 
+.PvP-mode {
+    cursor:pointer;
+}
+
+.bot-mode {
+    cursor:pointer;
+}
+
 .close-menu {
     cursor: pointer;
 }
 
-.menu {
+.menu{
     transition: all 1s;
     font-family: 'Rubik Mono One', serif;
     position: absolute;
