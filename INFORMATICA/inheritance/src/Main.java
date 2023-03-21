@@ -1,34 +1,52 @@
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 class Persona {
     private String nome;
     private String cognome;
 
-    public Persona(String nome, String cognome){
+    public Persona(String nome, String cognome) {
         this.nome = nome;
         this.cognome = cognome;
-        System.out.println("Persona"+nome+cognome+"Creata con successo");
     }
 
-    public String getCognome() {
-        return this.cognome;
+    public void visualizza() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Cognome: " + cognome);
     }
 
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
-    public void visualizza(){
-        System.out.println("Nome"+);
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
 }
 
 class Dipendente extends Persona {
-    String dataAssunzione;
-    double stipendio;
+    private String dataAssunzione;
+    private double stipendio;
 
-    public double getStipendio() {
-        return stipendio;
+    public Dipendente(String nome, String cognome, String dataAssunzione, double stipendio) {
+        super(nome, cognome);
+        this.dataAssunzione = dataAssunzione;
+        this.stipendio = stipendio;
+    }
+
+    @Override
+    public void visualizza() {
+        super.visualizza();
+        System.out.println("Data assunzione: " + dataAssunzione);
+        System.out.println("Stipendio: " + stipendio);
     }
 
     public String getDataAssunzione() {
@@ -39,39 +57,30 @@ class Dipendente extends Persona {
         this.dataAssunzione = dataAssunzione;
     }
 
+    public double getStipendio() {
+        return stipendio;
+    }
+
     public void setStipendio(double stipendio) {
         this.stipendio = stipendio;
     }
 
-    public Dipendente(String nome, String cognome, String dataAssunzione, Double stipendio) {
-        super(nome, cognome);
-        this.dataAssunzione=dataAssunzione;
-        this.stipendio=stipendio;
-    }
-
-    @Override
-    public void visualizza() {
-        super.visualizza();
-        System.out.println("Data di assunzione"+ dataAssunzione+"Stipendio: "+stipendio);
-    }
-
-    public boolean guadagnaDiPiu(Dipendente dipendente) {
-        if(this.stipendio>dipendente.stipendio) {
-            return true;
-        }else{
-            return false;
-        }
+    public boolean guadagnaPiuDi(Dipendente altroDipendente) {
+        return this.stipendio > altroDipendente.getStipendio();
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Dipendente dip1=new Dipendente("pippo","baudo","25 aprile",125.0);
-        Dipendente dip2=new Dipendente("pippi","baudo","25 aprile",130.0);
-        Dipendente dip3=new Dipendente("pippu","baudo","25 aprile",25.0);
+        Dipendente[] dipendenti = new Dipendente[3];
+        dipendenti[0] = new Dipendente("Mario", "Rossi", "01/01/2022", 2000);
+        dipendenti[1] = new Dipendente("Luigi", "Verdi", "01/01/2022", 3000);
+        dipendenti[2] = new Dipendente("Giovanni", "Bianchi", "01/01/2022", 2500);
 
-        ArrayList<Dipendente> dipendenti = new ArrayList<>();
+        Arrays.sort(dipendenti, Comparator.comparingDouble(Dipendente::getStipendio));
 
-
+        for (Dipendente dipendente : dipendenti) {
+            dipendente.visualizza();
+        }
     }
 }
