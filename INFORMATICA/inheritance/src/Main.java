@@ -77,8 +77,16 @@ public class Main {
         dipendenti[1] = new Dipendente("Luigi", "Verdi", "01/01/2022", 3000);
         dipendenti[2] = new Dipendente("Giovanni", "Bianchi", "01/01/2022", 2500);
 
-        Arrays.sort(dipendenti, Comparator.comparingDouble(Dipendente::getStipendio));
-
+        for (int i = 0; i < dipendenti.length; i++) {
+            for (int j = i + 1; j < dipendenti.length; j++) {
+                if (dipendenti[i].getStipendio() > dipendenti[j].getStipendio()) {
+                    Dipendente temp = dipendenti[i];
+                    dipendenti[i] = dipendenti[j];
+                    dipendenti[j] = temp;
+                }
+            }
+        }
+        
         for (Dipendente dipendente : dipendenti) {
             dipendente.visualizza();
         }
