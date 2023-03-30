@@ -20,12 +20,12 @@ class Progetto {
         System.out.printf("\nInformazioni\nNome:%s\nPercentuale:%.2f\nDipendenti:%d\n",nome , percentuale, dipendenti.size());
         listaDipendenti();
 
-        System.out.println("\nMilestone");
+        System.out.println("\nMilestone:");
         for (Milestone milestone : milestones) {
             milestone.completamento();
-            System.out.printf("milestone: %s - percentuale:%.2f", milestone.nome, milestone.percentuale);
+            System.out.printf("\nmilestone: %s - percentuale:%.2f - stato:%s\n", milestone.nome, milestone.percentuale, milestone.completata ? "completata" : "incompleta");
             for (Task task : milestone.tasks) {
-
+                System.out.printf("Task: %s - Scadenza:%d - Assegnata al Dipendente:%s %s - criticità:%s - completata:%s\n", task.nome, task.scadenza, task.dipendente.nome, task.dipendente.cognome, task.critica ? "critica" : "non critica", task.completata ? "true": "false");
             }
         }
     }
@@ -53,7 +53,7 @@ class Progetto {
     }
 
     float milestoneCompletate() {
-        float milestoneCompletata = 0;
+        float milestoneCompletata = 0.0f;
         for (Milestone milestone: milestones) {
             milestone.percentuale();
             if (milestone.completata) {
@@ -72,6 +72,7 @@ class Progetto {
             for (Task task : milestone.tasks) {
                 if (!task.completata) {
                     completata = false;
+                    return;
                 }
             }
         }
@@ -93,7 +94,6 @@ class Milestone {
     String nome;
     float percentuale = 0;
     ArrayList<Task> tasks = new ArrayList<>();
-    float andamento = 0;
     boolean completata = false;
 
     public Milestone(String nome) {
@@ -218,7 +218,7 @@ public class Main {
 
                 case 3 -> {
                     if (azienda.progetto == null) {
-                        System.out.println("SOS");
+                        System.out.println("Non esiste un progetto");
                         break;
                     }
 
@@ -290,6 +290,7 @@ public class Main {
                                     int sceltaTask = scanner.nextInt();
 
                                     Task task = milestone.tasks.get(sceltaTask);
+
                                     task.completata = true;
                                     task.dipendente.occupazione = false;
                                     azienda.progetto.completamento();

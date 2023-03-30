@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/AziendaSoftware/Milestone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AziendaSoftware/Milestone.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AziendaSoftware/Progetto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AziendaSoftware/Progetto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AziendaSoftware/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AziendaSoftware/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AziendaSoftware/dipendente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AziendaSoftware/dipendente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +81,7 @@
       <workItem from="1679409407554" duration="37000" />
       <workItem from="1680110572917" duration="13000" />
       <workItem from="1680110611797" duration="1763000" />
-      <workItem from="1680185807227" duration="11198000" />
+      <workItem from="1680185807227" duration="14475000" />
     </task>
     <servers />
   </component>
