@@ -37,3 +37,11 @@ let grandezzaInp = document.querySelector("#grandezza");
     y=0
     x=0
 })
+
+function somma(array) {
+    let risultato = 0;
+    for (let i = 0; i < array.length; i++) {
+        risultato += array[i];
+    }
+    return risultato;
+}

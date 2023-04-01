@@ -10,7 +10,7 @@ public class Main {
 
         System.out.println("Lista delle targhe dei veicoli guasti:");
         for (int i = 0; i < veicoli.length; i++) {
-            if (veicoli[i].isGuasto()) {
+            if (veicoli[i].isGuasto()) { 
                 System.out.println(veicoli[i].getTarga());
             }
         }
