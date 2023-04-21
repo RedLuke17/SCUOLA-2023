@@ -28,10 +28,10 @@ class Contatto {
     @Override
     public String toString() {
         return "Contatto{" +
-                "nome='" + nome + '\'' +
-                ", cognome='" + cognome + '\'' +
-                ", telefono='" + telefono + '\'' +
-                '}';
+                "nome=" + nome + " " +
+                ", cognome=" + cognome + " " +
+                ", telefono=" + telefono + " " +
+                "}";
     }
 }
 
