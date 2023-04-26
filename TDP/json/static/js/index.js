@@ -1,5 +1,5 @@
-function eventHandler(evento) {
-    evento.preventDefault()
+function eventHandler(e) {
+    e.preventDefault()
     let nome = document.querySelector("#nome").value
     let cognome = document.querySelector("#cognome").value
     let eta = document.querySelector("#eta").value
