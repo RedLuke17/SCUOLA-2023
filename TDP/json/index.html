@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuso orario</title>
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+    <form id="mainForm">
+        <label for="nome">NOME: </label>
+        <input type="text" id="nome" name="nome">
+    
+        <label for="cognome">COGNOME: </label>
+        <input type="text" id="cognome" name="cognome">
+    
+        <label for="eta">ETA': </label>
+        <input type="number" id="eta" name="eta">
+    
+        <label for="sesso">SESSO: </label>
+        <select id="sesso" name="sesso">
+            <option value="maschio">MASCHIO</option>
+            <option value="femmina">FEMMINA</option>
+            <option value="altro">ALTRO</option>
+        </select>
+        
+        <input type="submit" id="invia" value="INVIA">
+    </form>
+    <p id="print"></p>
+    <script src="./static/js/index.js"></script>
+</body>
+</html>
