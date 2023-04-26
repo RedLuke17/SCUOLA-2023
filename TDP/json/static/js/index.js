@@ -1,4 +1,4 @@
-function invioDati(evento) {
+function eventHandler(evento) {
     evento.preventDefault()
     let nome = document.querySelector("#nome").value
     let cognome = document.querySelector("#cognome").value
@@ -7,10 +7,9 @@ function invioDati(evento) {
     utente = { nome, cognome, eta, sesso}
     utenti.push(utente)
 
-    document.querySelector("#print").innerHTML = utente
     console.log(utenti)
 }
 
 let utenti = []
 
-document.querySelector("#invia").addEventListener("click", invioDati)
+document.querySelector("#invia").addEventListener("click", eventHandler)
