@@ -16,8 +16,7 @@ class Progetto {
     }
 
     void infoProgetto(){
-        percentuale();
-        System.out.printf("\nInformazioni\nNome:%s\nPercentuale:%.2f\nDipendenti:%d\n",nome , percentuale, dipendenti.size());
+        System.out.printf("\nInformazioni\nNome:%s\nPercentuale:%.2f\nDipendenti:%d\n", nome, percentuale(), dipendenti.size());
         listaDipendenti();
 
         System.out.println("\nMilestone:");
@@ -63,8 +62,8 @@ class Progetto {
         return milestoneCompletata;
     }
 
-    void percentuale() {
-        percentuale = (milestoneCompletate()/milestones.size()) * 100;
+    float percentuale() {
+        return percentuale = (milestoneCompletate()/milestones.size()) * 100;
     }
 
     void completamento() {
@@ -119,10 +118,12 @@ class Milestone {
     }
 
     void completamento() {
-        int nonCompletate = 0;
+        int nonCompletate = 1;
         for (Task task : tasks) {
             if (!task.completata) {
                 nonCompletate++;
+            } else {
+                nonCompletate--;
             }
         }
         if (nonCompletate == 0) {
