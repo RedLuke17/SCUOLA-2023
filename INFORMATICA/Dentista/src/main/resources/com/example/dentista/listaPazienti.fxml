@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="590.0" styleClass="listaBG" stylesheets="@./css/index.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dentista.HomeController">
+   <children>
+      <Label layoutX="1.0" layoutY="61.0" prefHeight="42.0" prefWidth="385.0" text="LISTA DEI PAZIENTI IN ATTESA">
+         <font>
+            <Font name="Arial Bold Italic" size="25.0" />
+         </font></Label>
+      <ListView fx:id="listaPazienti" layoutX="57.0" layoutY="95.0" prefHeight="200.0" prefWidth="272.0" styleClass="listaPazienti" />
+      <Label layoutX="373.0" layoutY="103.0" prefHeight="42.0" prefWidth="177.0" text="CHIAMA DENTISTA:" textFill="RED" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Button layoutX="424.0" layoutY="158.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="79.0" onAction="#dentista" styleClass="buttonBG" text="CHIAMA">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

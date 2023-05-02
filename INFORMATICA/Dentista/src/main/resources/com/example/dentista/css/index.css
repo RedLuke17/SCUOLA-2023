@@ -1,0 +1,33 @@
+.homeBG{
+    -fx-background-color:
+            repeating-image-pattern("https://static.vecteezy.com/ti/vettori-gratis/p1/2596335-uniforme-da-dentista-sfondo-grigio-vettoriale.jpg")
+}
+
+.registrazioneBG{
+    -fx-background-color:
+            repeating-image-pattern("https://img.freepik.com/premium-photo/blue-clipboard-dental-model-dentist-instruments-blue-background_121946-3301.jpg")
+}
+
+.inputBG{
+    -fx-border-color: black;
+
+    -fx-background-color:
+            repeating-image-pattern("https://static.wikia.nocookie.net/minecraft_gamepedia/images/e/ef/Mycelium_%28top_texture%29_JE2_BE2.png/revision/latest?cb=20201006060153")
+}
+
+.buttonBG{
+    -fx-border-color: black;
+
+    -fx-background-color:
+            repeating-image-pattern("https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2a/Clay_%28texture%29_JE2_BE2.png/revision/latest?cb=20201006054701")
+}
+
+.listaBG{
+    -fx-background-color:
+            repeating-image-pattern("https://media.istockphoto.com/id/1047643206/it/foto/strumenti-dentisti-su-sfondo-blu-corncang-curette-sonda-dentale-morsetto-gross-mayer-specchio.jpg?s=612x612&w=0&k=20&c=94zcUV0ObFnGdoC1424RAUvjfoBxgNKfWEGG-lhAgto=")
+}
+
+.listaPazienti{
+    -fx-border-color: black;
+    -fx-border-width: 5;
+}
