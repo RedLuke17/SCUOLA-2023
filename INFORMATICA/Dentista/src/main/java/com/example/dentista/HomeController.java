@@ -15,25 +15,22 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class HomeController {
-    private Vector<Paziente> pazienti = new Vector<>();
+    String DataListaPazienti = "ListaPazienti.txt";
+    File file = new File(DataListaPazienti);
 
-    @FXML
-    private Parent fxmlLoader;
+
+    public ArrayList<Paziente> pazienti = new ArrayList<>();
 
     @FXML
     private ListView<String> listaPazienti;
-
-
-
-    //dentista
-    public void dentista() {
-        listaPazienti.getItems().remove(0);
-        pazienti.remove(1);
-    }
 
 
 
@@ -41,7 +38,7 @@ public class HomeController {
     @FXML
     private AnchorPane registrazione;
 
-    public void inizializza(Vector<Paziente> pazienti) {
+    public void inizializza(ArrayList<Paziente> pazienti) {
         this.pazienti = pazienti;
     }
 
@@ -86,6 +83,23 @@ public class HomeController {
 
         } else {
             pazienti.add(new Paziente(nome.getText(), cognome.getText(), Integer.parseInt(eta.getText()), codiceFiscale.getText(), patologia.getText()));
+
+            try {
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+
+                FileWriter fileWriter = new FileWriter(DataListaPazienti, true);
+                for (Paziente paziente : pazienti) {
+                    fileWriter.write(paziente.toString() + "\n");
+                }
+                fileWriter.close();
+
+            } catch (IOException e) {
+                System.out.println("Errore con il file " + DataListaPazienti);
+                e.printStackTrace();
+            }
+
             nome.setText("");
             cognome.setText("");
             eta.setText("");
@@ -97,18 +111,28 @@ public class HomeController {
 
 
 
-
     //lista dei pazienti
     @FXML
 
 
-    public void inizializzaLista(Vector<Paziente> pazientis){
+    public void inizializzaLista(){
         ObservableList<String> items = FXCollections.observableArrayList();
-        for(Paziente paziente : pazientis){
-            items.add(paziente.getCognome() + " " + paziente.getNome() + " " + paziente.getEta() + " " + paziente.getPatologia());
-        }
-        listaPazienti.setItems(items);
+        //for(Paziente paziente : pazientis){
+        //    items.add(paziente.getCognome() + " " + paziente.getNome() + " " + paziente.getEta() + " " + paziente.getPatologia());
+        //}
 
+        try {
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                items.add(line);
+            }
+            scanner.close();
+            listaPazienti.setItems(items);
+        } catch (IOException e) {
+            System.out.println("Errore con il file " + DataListaPazienti);
+            e.printStackTrace();
+        }
     }
     @FXML
     public void listaPazienti() throws IOException {
@@ -118,7 +142,28 @@ public class HomeController {
         stage.setTitle("Lista pazienti");
         stage.setResizable(false);
         HomeController controller = loader.getController();
-        controller.inizializzaLista(pazienti);
+        controller.inizializzaLista();
         stage.show();
+    }
+
+
+
+
+    //dentista
+    public void dentista() {
+
+        try {
+            pazienti.remove(0);
+            FileWriter fileWriter = new FileWriter(DataListaPazienti, true);
+            for (Paziente paziente : pazienti) {
+                fileWriter.write(paziente.toString() + "\n");
+            }
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("Errore con il file " + DataListaPazienti);
+            e.printStackTrace();
+        }
+        listaPazienti.getItems().remove(0);
+
     }
 }

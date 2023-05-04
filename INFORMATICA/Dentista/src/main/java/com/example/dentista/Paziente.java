@@ -15,6 +15,10 @@ public class Paziente {
         this.patologia = patologia;
     }
 
+    public String toString() {
+        return nome + " " + cognome + " " + eta;
+    }
+
     public String getNome() {
         return nome;
     }
