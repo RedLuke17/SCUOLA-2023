@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -20,10 +21,18 @@ import java.util.Vector;
 public class HomeController {
     private Vector<Paziente> pazienti = new Vector<>();
 
+    @FXML
+    private Parent fxmlLoader;
+
+    @FXML
+    private ListView<String> listaPazienti;
+
+
 
     //dentista
     public void dentista() {
-        pazienti.remove(0);
+        listaPazienti.getItems().remove(0);
+        pazienti.remove(1);
     }
 
 
@@ -71,7 +80,7 @@ public class HomeController {
         stage = (Stage) registrazione.getScene().getWindow();
         stage.close();
     }
-
+    // Python >> if sas is True or giglo is False:
     public void invia() {
         if (nome.getText().isEmpty() || cognome.getText().isEmpty() || eta.getText().isEmpty() || codiceFiscale.getText().isEmpty() || patologia.getText().isEmpty()) {
 
@@ -91,14 +100,15 @@ public class HomeController {
 
     //lista dei pazienti
     @FXML
-    private ListView<String> listaPazienti;
 
-    public void inizializzaLista(Vector<Paziente> pazienti){
+
+    public void inizializzaLista(Vector<Paziente> pazientis){
         ObservableList<String> items = FXCollections.observableArrayList();
-        for(Paziente paziente : pazienti){
+        for(Paziente paziente : pazientis){
             items.add(paziente.getCognome() + " " + paziente.getNome() + " " + paziente.getEta() + " " + paziente.getPatologia());
         }
         listaPazienti.setItems(items);
+
     }
     @FXML
     public void listaPazienti() throws IOException {
