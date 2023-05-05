@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+}
+
+body {
+    background-color: #F0F0C9;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    margin: 0 auto;
+    width: 364px;
+    height: 124px;
+    word-wrap: break-word;
+    margin-top: 31px;
+    font-family: 'Concert One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 120%;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #D8572A;
+}
+
+.img3 {
+    width: 111px;
+    height: 92px;
+    background-color: red;
+    position: absolute;
+    margin-top: 56px;
+    margin-left: 272px;
+}
+
+.jokeBox {
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 129px;
+    width: 364px;
+    height: 113px;
+    background-color: #E1E1E1;
+}
+
+.joke {
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-left: 16px;
+
+    font-family: 'Concert One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 120%;
+    text-transform: lowercase;
+    color: #000000;
+}
+
+.img {
+    margin: 0 auto;
+    margin-top: 54px;
+    background-color: red;
+    height: 124px;
+    width: 104px;
+}
+
+select {
+    text-align: center;
+    width: 364px;
+    height: 28px;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+button {
+    border-radius: 10px;
+    margin-top: 156px;
+    width: 364px;
+    height: 28px;
+    background-color: #780116;
+    font-family: 'Concert One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.copyBox {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color:  #D8572A;
+    margin: 0 auto;
+    margin-top: 18px;
+    width: 185px;
+    height: 33px;
+    cursor: pointer;
+}
+
+.copyBTN {
+
+}
+
+.img2 {
+    width: 15px;
+    height: 15px;
+    margin-left: 45px;
+    margin-right: 14px;
+    background-color: white;
+}
