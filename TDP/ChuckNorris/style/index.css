@@ -28,14 +28,13 @@ body {
     line-height: 120%;
     text-align: center;
     text-transform: uppercase;
-
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     color: #D8572A;
 }
 
 .img3 {
     width: 111px;
     height: 92px;
-    background-color: red;
     position: absolute;
     margin-top: 56px;
     margin-left: 272px;
@@ -67,7 +66,6 @@ body {
 .img {
     margin: 0 auto;
     margin-top: 54px;
-    background-color: red;
     height: 124px;
     width: 104px;
 }
@@ -121,5 +119,4 @@ button {
     height: 15px;
     margin-left: 45px;
     margin-right: 14px;
-    background-color: white;
 }
