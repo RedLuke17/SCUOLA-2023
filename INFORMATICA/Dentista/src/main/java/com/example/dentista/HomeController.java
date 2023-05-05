@@ -26,6 +26,8 @@ public class HomeController {
     String DataListaPazienti = "ListaPazienti.txt";
     File file = new File(DataListaPazienti);
 
+    ArrayList<String> pazientibruh = new ArrayList<>();
+
 
     public ArrayList<Paziente> pazienti = new ArrayList<>();
 
@@ -113,8 +115,6 @@ public class HomeController {
 
     //lista dei pazienti
     @FXML
-
-
     public void inizializzaLista(){
         ObservableList<String> items = FXCollections.observableArrayList();
         //for(Paziente paziente : pazientis){
@@ -151,19 +151,28 @@ public class HomeController {
 
     //dentista
     public void dentista() {
-
         try {
-            pazienti.remove(0);
-            FileWriter fileWriter = new FileWriter(DataListaPazienti, true);
-            for (Paziente paziente : pazienti) {
-                fileWriter.write(paziente.toString() + "\n");
+                Scanner scanner = new Scanner(file);
+                while (scanner.hasNextLine()) {
+                    int i =+ 1;
+                    String line = scanner.nextLine();
+                    pazientibruh.add(i-1, line);
+                    System.out.println("Errore con il file " + DataListaPazienti);
+                }
+                scanner.close();
+
+                pazientibruh.remove(0);
+
+            FileWriter fileWriter = new FileWriter(DataListaPazienti);
+            for (int i = 0; i < pazientibruh.size(); i++) {
+                fileWriter.write(pazientibruh + "\n");
             }
             fileWriter.close();
+
+
         } catch (IOException e) {
             System.out.println("Errore con il file " + DataListaPazienti);
             e.printStackTrace();
         }
-        listaPazienti.getItems().remove(0);
-
     }
 }
