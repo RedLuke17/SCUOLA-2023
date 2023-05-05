@@ -111,7 +111,15 @@ button {
 }
 
 .copyBTN {
-
+    font-family: 'Concert One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 .img2 {
