@@ -66,11 +66,13 @@ public class RegistrazioneController {
                     file.createNewFile();
                 }
 
+                int i = 0;
                 Scanner scanner = new Scanner(file);
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
                     String[] string = line.split("\s");
-                    pazienti.add(new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4]));
+                    pazienti.set(i, new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4]));
+                    i++;
                 }
                 scanner.close();
 
