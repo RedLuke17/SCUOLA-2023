@@ -5,7 +5,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="registrazione" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="590.0" styleClass="registrazioneBG" stylesheets="@./css/index.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dentista.HomeController">
+<AnchorPane fx:id="registrazione" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="590.0" styleClass="registrazioneBG" stylesheets="@./css/index.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dentista.RegistrazioneController">
    <children>
       <Label prefHeight="51.0" prefWidth="291.0" text="REGISTRATI">
          <font>

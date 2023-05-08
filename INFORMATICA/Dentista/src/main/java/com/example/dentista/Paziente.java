@@ -15,23 +15,8 @@ public class Paziente {
         this.patologia = patologia;
     }
 
+    @Override
     public String toString() {
-        return nome + " " + cognome + " " + eta;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public int getEta() {
-        return eta;
-    }
-
-    public String getPatologia() {
-        return patologia;
+        return nome + " " + cognome + " " + eta + " " + codiceFiscale + " " + patologia;
     }
 }
