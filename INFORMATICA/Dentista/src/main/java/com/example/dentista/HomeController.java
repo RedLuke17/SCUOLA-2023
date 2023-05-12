@@ -23,9 +23,6 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class HomeController {
-    public ArrayList<Paziente> pazienti = new ArrayList<>();
-
-
     //registrazione
     @FXML
     public void registrazione() throws IOException {
@@ -35,7 +32,7 @@ public class HomeController {
         stage.setTitle("Registrazione");
         stage.setResizable(false);
         RegistrazioneController controller = loader.getController();
-        controller.inizializza(pazienti);
+        controller.inizializza();
         stage.show();
     }
 
@@ -43,11 +40,23 @@ public class HomeController {
     @FXML
     public void listaPazienti() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("listaPazienti.fxml"));
-        Stage stage = new Stage(StageStyle.DECORATED);
+        Stage stage = new Stage();
         stage.setScene(new Scene(loader.load(), 590, 390));
         stage.setTitle("Lista pazienti");
         stage.setResizable(false);
         ListaController controller = loader.getController();
+        controller.inizializzaLista();
+        stage.show();
+    }
+
+    @FXML
+    public void listaGiornaliera() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("listaGiornaliera.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(loader.load(), 590, 390));
+        stage.setTitle("Lista pazienti giornaliera");
+        stage.setResizable(false);
+        ListaGiornalieraController controller = loader.getController();
         controller.inizializzaLista();
         stage.show();
     }

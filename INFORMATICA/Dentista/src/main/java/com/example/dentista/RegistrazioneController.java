@@ -3,6 +3,7 @@ package com.example.dentista;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -18,14 +19,14 @@ import java.util.Scanner;
 public class RegistrazioneController {
     String DataListaPazienti = "ListaPazienti.txt";
     File file = new File(DataListaPazienti);
-    public ArrayList<Paziente> pazienti;
+    public ArrayList<Paziente> pazienti = new ArrayList<>();
     
 
     //registrazione
     @FXML
     private AnchorPane registrazione;
 
-    public void inizializza(ArrayList<Paziente> pazienti) {
+    public void inizializza() {
         this.pazienti = pazienti;
     }
 
@@ -39,12 +40,17 @@ public class RegistrazioneController {
     private TextField codiceFiscale;
     @FXML
     private TextArea patologia;
+
+    @FXML
+    private TextField giorno;
+
     public void reset() {
         nome.setText("");
         cognome.setText("");
         eta.setText("");
         codiceFiscale.setText("");
         patologia.setText("");
+        giorno.setText("");
     }
 
     public void esci() {
@@ -55,45 +61,48 @@ public class RegistrazioneController {
     // Python >> if sas is True or giglo is False:
     public void invia() {
         if (nome.getText().isEmpty() || cognome.getText().isEmpty() || eta.getText().isEmpty() || codiceFiscale.getText().isEmpty() || patologia.getText().isEmpty()) {
-
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Errore");
+            alert.setContentText("Compila tutti i campi");
+            alert.show();
         } else {
-            pazienti.add(new Paziente(nome.getText(), cognome.getText(), Integer.parseInt(eta.getText()), codiceFiscale.getText(), patologia.getText()));
+            int eta_ = 0;
+                try {
+                    eta_ = Integer.parseInt(eta.getText());
+                    pazienti.add(new Paziente(nome.getText(), cognome.getText(), eta_, codiceFiscale.getText(), patologia.getText()));
 
-            try {
-                if (!file.exists()) {
-                    file.createNewFile();
+                    try {
+                        if (!file.exists()) {
+                            file.createNewFile();
+                        }
+
+                        FileWriter fileWriter = new FileWriter(DataListaPazienti, true);
+                        for (Paziente paziente : pazienti) {
+                            fileWriter.write(paziente.toString() + "\n");
+                        }
+                        fileWriter.close();
+
+                    } catch (IOException e) {
+                        System.out.println("Errore con il file " + DataListaPazienti);
+                        e.printStackTrace();
+                    }
+
+                    nome.setText("");
+                    cognome.setText("");
+                    eta.setText("");
+                    codiceFiscale.setText("");
+                    patologia.setText("");
+                    giorno.setText("");
+
+                    Stage stage;
+                    stage = (Stage) registrazione.getScene().getWindow();
+                    stage.close();
+                } catch (Exception e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Errore");
+                    alert.setContentText("L'eta' dev'essere un numero");
+                    alert.show();
                 }
-
-                int i = 0;
-
-                Scanner scanner = new Scanner(file);
-                while (scanner.hasNextLine()) {
-                    String line = scanner.nextLine();
-                    String[] string = line.split("\s");
-                    pazienti.set(i, new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4]));
-                    i++;
-                }
-                scanner.close();
-
-                FileWriter fileWriter = new FileWriter(DataListaPazienti);
-                for (Paziente paziente : pazienti) {
-                    fileWriter.write(paziente.toString() + "\n");
-                }
-                fileWriter.close();
-
-            } catch (IOException e) {
-                System.out.println("Errore con il file " + DataListaPazienti);
-                e.printStackTrace();
-            }
-
-            nome.setText("");
-            cognome.setText("");
-            eta.setText("");
-            codiceFiscale.setText("");
-            patologia.setText("");
-            Stage stage;
-            stage = (Stage) registrazione.getScene().getWindow();
-            stage.close();
         }
     }
 }

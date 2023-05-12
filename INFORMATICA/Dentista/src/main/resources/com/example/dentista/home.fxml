@@ -12,6 +12,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#registrazione" text="Registrati" />
                   <MenuItem mnemonicParsing="false" onAction="#listaPazienti" text="Lista Pazienti" />
+                    <MenuItem mnemonicParsing="false" onAction="#listaGiornaliera" text="Lista Pazienti Giornaliera" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="HELP">

@@ -54,6 +54,11 @@
             <Font name="Consolas Bold Italic" size="20.0" />
          </font></Label>
       <TextArea fx:id="patologia" layoutX="35.0" layoutY="237.0" prefHeight="139.0" prefWidth="250.0" promptText="inserisci qui la descrizione della patologia" />
+      <Label layoutX="409.0" layoutY="246.0" prefHeight="38.0" prefWidth="92.0" text="GIORNO:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font></Label>
+      <TextField fx:id="giorno" layoutX="376.0" layoutY="279.0" prefHeight="38.0" prefWidth="149.0" styleClass="inputBG" promptText="inserisci il giorno"/>
       <Button alignment="CENTER" layoutX="285.0" layoutY="246.0" mnemonicParsing="false" onAction="#invia" prefHeight="52.0" prefWidth="65.0" styleClass="buttonBG" text="INVIA">
          <font>
             <Font name="Arial Bold" size="15.0" />
