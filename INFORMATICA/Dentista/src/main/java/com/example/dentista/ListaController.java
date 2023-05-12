@@ -81,6 +81,10 @@ public class ListaController {
             e.printStackTrace();
         }
 
+        Stage stage;
+        stage = (Stage) listaPazienti.getScene().getWindow();
+        stage.close();
+
 
 
         /*try {

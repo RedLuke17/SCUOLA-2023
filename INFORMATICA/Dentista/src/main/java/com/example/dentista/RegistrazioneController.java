@@ -19,9 +19,7 @@ public class RegistrazioneController {
     String DataListaPazienti = "ListaPazienti.txt";
     File file = new File(DataListaPazienti);
     public ArrayList<Paziente> pazienti;
-
-
-
+    
 
     //registrazione
     @FXML
@@ -67,6 +65,7 @@ public class RegistrazioneController {
                 }
 
                 int i = 0;
+
                 Scanner scanner = new Scanner(file);
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
