@@ -1,44 +1,43 @@
-let categories = ["animal","career","celebrity","dev","explicit","fashion","food","history","money","movie","music","political","religion","science","sport","travel"]
-let joke = document.querySelector(".joke")
-let copyBox = document.querySelector(".copyBox")
-let copyBTN = document.querySelector(".copyBTN")
-let link = document.querySelector(".link")
+let form = document.querySelector(".mainForm")
+let values = []
+for (let i = 1; i <= 3; i++) {
+    let div = document.createElement("div")
+    div.id = "question-"+i
+    form.appendChild(div)
 
-for(let i = 0;i<categories.length;i++){
-    let option = document.createElement("option")
+    let button = document.createElement("input")
+    button.type = "radio"
+    button.id = "answer-1"
+    button.name = "answer-1"
+    button.value = randomValue(10,5,-10)
+    div.appendChild(button)
 
-    option.value= categories[i]
-    option.innerHTML = categories[i].toUpperCase()
-    document.querySelector("select[name=category]").appendChild(option)
+    let label = document.createElement("label")
+    label.innerHTML = randomText(values)
+    div.appendChild(label)
 }
 
-document.querySelector("#mainForm").addEventListener("submit", function(e){
-    e.preventDefault()
-    let currentCategory = document.querySelector("select[name=category]").value
-    console.log(`categoria -> ${currentCategory}`)
 
-    let url = "https://api.chucknorris.io/jokes/random"
 
-    if(currentCategory != ""){
-        url += `?category=${currentCategory}`
-        fetch(url).then(response => response.json())
-        .then(data => { joke.innerHTML = `${data.value}`
-        link.href = data.url})
-    } else {
-        fetch(url).then(response => response.json())
-        .then(data => { joke.innerHTML = `${data.value}`
-        link.href = data.url})
+function randomValue(min,med,max) {
+    values = [min, med , max]
+
+    return values.sort(() => Math.random() -0.5)
+}
+
+function randomText(values) {
+    for (let i = 0; i < values.length; i++) {
+        if (values[i] == 10) {
+            return  "cruda"
+        }
+        if (values[i] == 5) {
+            return "cotta"
+        }
+        if (values[i] == -10) {
+            return "GIGLICAA"
+        }
     }
 
-    console.log(url)
-})
+}
 
-copyBox.addEventListener("click", () => {
-    navigator.clipboard.writeText(joke.innerText)
-})
-
-copyBTN.addEventListener("click", () => {
-    copyBTN.innerHTML = "Battuta copiata"
-    setTimeout(function(){ copyBTN.innerHTML = "copia" },1500)
-    
-})
+console.log(randomValue(10, 5, -10))

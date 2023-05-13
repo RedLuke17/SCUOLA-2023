@@ -17,7 +17,6 @@ public class ListaGiornalieraController {
     File file = new File(DataListaPazienti);
     Paziente paziente;
 
-    public ArrayList<Paziente> pazienti = new ArrayList<>();
 
 
     @FXML
@@ -51,7 +50,7 @@ public class ListaGiornalieraController {
 
     //dentista
     public void dentista() {
-
+        ArrayList<Paziente> pazienti = new ArrayList<>();
         try {
             listaGiornaliera.getItems().remove(0);
             Scanner scanner = new Scanner(file);
