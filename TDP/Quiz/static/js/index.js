@@ -122,6 +122,13 @@ submit.addEventListener("click", function(){
         if(score < 0) {
             document.querySelector(".result").innerHTML = "sei poco un giglo"
         }
+        if(score > 0 && score < 20) {
+            document.querySelector(".result").innerHTML = "sei mediamente un giglo"
+        }
+
+        if(score > 20) {
+            document.querySelector(".result").innerHTML = "sei TROPPO un giglo"
+        }
     } else {
         submit.disabled = true
     }
