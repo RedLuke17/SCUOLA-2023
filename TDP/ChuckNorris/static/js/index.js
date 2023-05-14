@@ -1,44 +1,44 @@
-let form = document.querySelector(".mainForm")
-let div
-let button
-let label
+let categories = ["animal","career","celebrity","dev","explicit","fashion","food","history","money","movie","music","political","religion","science","sport","travel"]
+let joke = document.querySelector(".joke")
+let copyBox = document.querySelector(".copyBox")
+let copyBTN = document.querySelector(".copyBTN")
+let link = document.querySelector(".link")
 
-for (let i = 0; i < 3; i++) {
-    div = document.createElement("div")
-    div.id = "question-"+i
-    form.appendChild(div)
+for(let i = 0;i<categories.length;i++){
+    let option = document.createElement("option")
 
-    button = document.createElement("input")
-    button.type = "radio"
-    button.id = "answer-1"
-    button.value = random(-10, 10)
-    button.name = "answer-1"
-    div.appendChild(button)
-
-    label = document.createElement("label")
-    label.innerHTML = random(-10, 10)
-    div.appendChild(label)
-    
+    option.value= categories[i]
+    option.innerHTML = categories[i].toUpperCase()
+    document.querySelector("select[name=category]").appendChild(option)
 }
 
+document.querySelector("#mainForm").addEventListener("submit", function(e){
+    e.preventDefault()
+    let currentCategory = document.querySelector("select[name=category]").value
+    console.log(`categoria -> ${currentCategory}`)
 
-function random(min, max) {
-    let numeriGenerati = [];
-    let numeroCasuale = Math.floor(Math.random() * (max - min + 1)) + min;
+    let url = "https://api.chucknorris.io/jokes/random"
 
-    if (numeriGenerati.includes(numeroCasuale)) {
-        return random(min, max);
+    if(currentCategory != ""){
+        url += `?category=${currentCategory}`
+        fetch(url).then(response => response.json())
+        .then(data => { joke.innerHTML = `${data.value}`
+        link.href = data.url})
+    } else {
+        fetch(url).then(response => response.json())
+        .then(data => { joke.innerHTML = `${data.value}`
+        link.href = data.url})
     }
 
-    numeriGenerati.push(numeroCasuale);
+    console.log(url)
+})
 
-    if (numeroCasuale >= 0 && numeroCasuale <= 5) {
-        return "Barilla, mi sembra un numero!";
-    } else if (numeroCasuale < 0) {
-        return "Sei minore di 0.";
-    } else if (numeroCasuale > 5) {
-        return "Sei maggiore di 5!!!";
-    }
+copyBox.addEventListener("click", () => {
+    navigator.clipboard.writeText(joke.innerText)
+})
 
-    return numeroCasuale;
-}
+copyBTN.addEventListener("click", () => {
+    copyBTN.innerHTML = "Battuta copiata"
+    setTimeout(function(){ copyBTN.innerHTML = "copia" },1500)
+
+})

@@ -73,9 +73,6 @@ public class ListaGiornalieraController {
             e.printStackTrace();
         }
 
-        Stage stage;
-        stage = (Stage) listaGiornaliera.getScene().getWindow();
-        stage.close();
 
 
 
