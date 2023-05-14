@@ -7,13 +7,13 @@ let barilla = 0
 
 let answers = [
     {
-        domanda:"giglo è un giglo?", risposte:
+        domanda:"Il pianeta terra è un pianeta?", risposte:
         [
             {
-                risposta:"si", punteggio:10
+                risposta:"credo di si", punteggio:10
             },
             {
-                risposta:"no", punteggio:-10
+                risposta:"ni", punteggio:-10
             },
             {
                 risposta:"forse", punteggio:5
@@ -21,7 +21,7 @@ let answers = [
         ]
     },
     {
-        domanda:"ti senti un giglo?", risposte:
+        domanda:"Triggiano è un pianeta?", risposte:
         [
             {
                 risposta:"che chiavica di domande", punteggio:5
@@ -35,7 +35,7 @@ let answers = [
         ]
     },
     {
-        domanda:"che colore preferisci?", risposte:
+        domanda:"Quanti pianeti esistono?", risposte:
         [
             {
                 risposta:"uno solo", punteggio:0
@@ -50,35 +50,6 @@ let answers = [
     }
 ]
 
-
-/*for (let i = 0; i < 3; i++) {
-    if (i < 1){
-        randomValue()
-    }
-    
-    if(i == 0) {
-    let answerTitle = document.createElement("h1")
-    answerTitle.innerHTML = answers[0].domanda
-    answersBox.appendChild(answerTitle)
-    }
-    
-
-    let div = document.createElement("div")
-    div.id = "question-"+(i+1)
-    answersBox.appendChild(div)
-
-    let button = document.createElement("input")
-    button.type = "radio"
-    button.id = "answer-1"
-    button.name = "answer-1"
-    button.value = answers[0].risposte[i].punteggio
-    div.appendChild(button)
-
-    let label = document.createElement("label")
-    
-    label.innerHTML = answers[0].risposte[i].risposta
-    div.appendChild(label)
-}*/
 
 randomValue()
 for (let i = 0; i < answers.length; i++) {

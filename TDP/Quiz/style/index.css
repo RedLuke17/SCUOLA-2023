@@ -1,11 +1,18 @@
 * {
     margin: 0;
+    color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+.title {
+    position: relative;
+    color: beige;
+    font-size:80px;
+}
 
 .answer {
     flex-shrink: 0;
-    width: 300px;
+    width: 350px;
     height: 50%;
 }
 
@@ -14,9 +21,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 300px;
+    width: 350px;
     height: 200px;
-    background-color: rgb(255, 0, 200);
+    background-color: rgba(79, 80, 41, 0.322);
+    border-radius: 20%;
 }
 
 .gestures {
@@ -27,11 +35,11 @@
 }
 
 .answersBox {
-    background-color: red;
+    background-color: rgba(121, 126, 94, 0);
     display: flex;
     overflow: hidden;
     width: 100%;
-    height: 50%;
+    min-height: 50%;
 }
 
 .left-arrow {
@@ -41,6 +49,8 @@
     text-align: center;
     background-color: beige;
     border-radius: 50%;
+    color: blue;
+    font-size: 23px;
 }
 
 .right-arrow {
@@ -49,5 +59,65 @@
     text-align: center;
     background-color: beige;
     border-radius: 50%;
+    color: blue;
+    font-size: 23px;
 }
 
+#submit {
+    color: blue;
+    font-size: 23px;
+}
+.result {
+    top: 100%;
+    color: beige;
+    font-size: 40px;
+    position: absolute;
+}
+
+.moon {
+    position: absolute;
+    top: 0;
+    left: 1;
+    right: 0;
+    bottom: 1;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.9;
+    box-shadow: 0px 0px 40px 15px white;
+    z-index: 1;
+}
+
+.stars, .twinkl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url(/static/images/stars.png) repeat top center;
+    z-index: 0;
+}
+
+.twinkl {
+    background: transparent url(/static/images/twinkling.png) repeat top;
+    z-index: 0;
+
+    -moz-animation: move-twink-back 200s linear;
+    -ms-animation: move-twink-back 200s linear infinite;
+    -o-animation: move-twink-back 200s linear infinite;
+    -webkit-animation: move-twink-back 200s linear infinite;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from {background-position: 0 0;}
+    to { background-position: -10000px 5000px;}
+}
