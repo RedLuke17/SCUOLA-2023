@@ -112,15 +112,15 @@ for (let i = 0; i < answers.length; i++) {
 submit.addEventListener("click", function(){
     let score = 0
 
-    if(barilla == answers.length) {
+    if(barilla >= document.querySelector(".answersBox").children.length-1) {
         document.querySelectorAll("input[type=radio]").forEach(input => {
             if(input.checked) {
                 score += parseInt(input.value)
             }
         })
         console.log(score)
-        if(score  < 10) {
-    
+        if(score < 0) {
+            document.querySelector(".result").innerHTML = "sei poco un giglo"
         }
     } else {
         submit.disabled = true
@@ -129,14 +129,16 @@ submit.addEventListener("click", function(){
 })
 
 rightArrow.addEventListener("click", function(){
-    /*document.querySelector(".answer-0").style.display = "none"*/
-    if(document.querySelector(".answersBox").children[barilla] != undefined || barilla < document.querySelector(".answersBox").children.length){
+    if(document.querySelector(".answersBox").children[barilla] != undefined || barilla < document.querySelector(".answersBox").children.length-1){
     document.querySelector(".answersBox").children[barilla].style.display = "none"
     barilla++
     submit.disabled = false
     }
     if(barilla == 1) {
         leftArrow.style.display = "block"
+    }
+    if(barilla >= document.querySelector(".answersBox").children.length-1) {
+        rightArrow.style.display = "none"
     }
 })
 
@@ -147,6 +149,9 @@ leftArrow.addEventListener("click", function(){
     }
     if(barilla == 0) {
         leftArrow.style.display = "none"
+    }
+    if(barilla < document.querySelector(".answersBox").children.length) {
+        rightArrow.style.display = "block"
     }
 })
 

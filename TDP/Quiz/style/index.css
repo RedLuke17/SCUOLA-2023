@@ -36,4 +36,18 @@
 
 .left-arrow {
     display: none;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    background-color: beige;
+    border-radius: 50%;
 }
+
+.right-arrow {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    background-color: beige;
+    border-radius: 50%;
+}
+
