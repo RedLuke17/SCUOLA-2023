@@ -50,7 +50,7 @@ let answers = [
         ]
     },
     {
-        domanda:"Di che colore è marte??", risposte:
+        domanda:"Di che colore è marte???", risposte:
         [
             {
                 risposta:"rossaceo", punteggio:10
@@ -85,7 +85,7 @@ for (let i = 0; i < answers.length; i++) {
     button.type = "radio"
     gg++
     button.id = "answer-"+gg
-    button.name = "answer-"+j
+    button.name = "answer-"+i
     button.value = answers[i].risposte[j].punteggio
     div.appendChild(button)
 
@@ -99,6 +99,7 @@ for (let i = 0; i < answers.length; i++) {
 
 submit.addEventListener("click", function(){
     let score = 0
+    document.querySelector(".result").classList.remove("anim-typewriter")
 
     if(arrowCounter >= document.querySelector(".answersBox").children.length-1) {
         document.querySelectorAll("input[type=radio]").forEach(input => {
@@ -108,14 +109,17 @@ submit.addEventListener("click", function(){
         })
         console.log(score)
         if(score < 0) {
-            document.querySelector(".result").innerHTML = "sei poco un giglo"
+            setTimeout(function(){ document.querySelector(".result").classList.add("anim-typewriter")
+            document.querySelector(".result").innerHTML = "sei poco un giglo"},450)
         }
         if(score > 0 && score < 20) {
-            document.querySelector(".result").innerHTML = "sei mediamente un giglo"
+            setTimeout(function(){ document.querySelector(".result").classList.add("anim-typewriter")
+            document.querySelector(".result").innerHTML = "sei mediamente un giglo"},450)
         }
 
         if(score > 20) {
-            document.querySelector(".result").innerHTML = "sei TROPPO un giglo"
+            setTimeout(function(){ document.querySelector(".result").classList.add("anim-typewriter")
+            document.querySelector(".result").innerHTML = "sei TROPPO un giglo"},450)
         }
     } else {
         submit.disabled = true
@@ -139,6 +143,7 @@ rightArrow.addEventListener("click", function(){
     }
     if(arrowCounter >= document.querySelector(".answersBox").children.length-1) {
         rightArrow.style.display = "none"
+        submit.classList.add("vibrate-3")
     }
 })
 
@@ -147,6 +152,8 @@ leftArrow.addEventListener("click", function(){
     document.querySelector(".left-arrow").classList.add("flicker-in-1")
     setTimeout(function(){ answersBox.classList.remove("slide-in-right")
     document.querySelector(".left-arrow").classList.remove("flicker-in-1") },450)
+    submit.classList.remove("vibrate-3")
+    
     arrowCounter--
     if(document.querySelector(".answersBox").children[arrowCounter] != undefined || arrowCounter < document.querySelector(".answersBox").children.length){
     document.querySelector(".answersBox").children[arrowCounter].style.display = "block"
