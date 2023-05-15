@@ -3,7 +3,8 @@ let submit = document.querySelector("#submit")
 let rightArrow = document.querySelector(".right-arrow")
 let leftArrow = document.querySelector(".left-arrow")
 
-let barilla = 0
+let arrowCounter = 0
+let gg = 0
 
 let answers = [
     {
@@ -47,13 +48,27 @@ let answers = [
                 risposta:"forse", punteggio:10
             },
         ]
+    },
+    {
+        domanda:"Di che colore è marte??", risposte:
+        [
+            {
+                risposta:"rossaceo", punteggio:10
+            },
+            {
+                risposta:"nessuno", punteggio:-10
+            },
+            {
+                risposta:"arancione", punteggio:5
+            },
+        ]
     }
 ]
 
 
 randomValue()
 for (let i = 0; i < answers.length; i++) {
-    let answerDiv = document.createElement("div")
+    let answerDiv = document.createElement("form")
     answerDiv.setAttribute("class","answer answer-"+i)
     answersBox.appendChild(answerDiv)
 
@@ -68,12 +83,14 @@ for (let i = 0; i < answers.length; i++) {
 
     let button = document.createElement("input")
     button.type = "radio"
-    button.className = "answer-"+i
-    button.name = "answer-"+i
+    gg++
+    button.id = "answer-"+gg
+    button.name = "answer-"+j
     button.value = answers[i].risposte[j].punteggio
     div.appendChild(button)
 
     let label = document.createElement("label")
+    label.htmlFor = "answer-"+gg
     label.innerHTML = answers[i].risposte[j].risposta
     div.appendChild(label)
     }
@@ -83,7 +100,7 @@ for (let i = 0; i < answers.length; i++) {
 submit.addEventListener("click", function(){
     let score = 0
 
-    if(barilla >= document.querySelector(".answersBox").children.length-1) {
+    if(arrowCounter >= document.querySelector(".answersBox").children.length-1) {
         document.querySelectorAll("input[type=radio]").forEach(input => {
             if(input.checked) {
                 score += parseInt(input.value)
@@ -107,28 +124,37 @@ submit.addEventListener("click", function(){
 })
 
 rightArrow.addEventListener("click", function(){
-    if(document.querySelector(".answersBox").children[barilla] != undefined || barilla < document.querySelector(".answersBox").children.length-1){
-    document.querySelector(".answersBox").children[barilla].style.display = "none"
-    barilla++
+    if(document.querySelector(".answersBox").children[arrowCounter] != undefined || arrowCounter < document.querySelector(".answersBox").children.length-1){
+    document.querySelector(".answersBox").children[arrowCounter].style.display = "none"
+    arrowCounter++
     submit.disabled = false
+
+    answersBox.classList.add("slide-in-left")
+    document.querySelector(".right-arrow").classList.add("flicker-in-1")
+    setTimeout(function(){ answersBox.classList.remove("slide-in-left")
+    document.querySelector(".right-arrow").classList.remove("flicker-in-1") },450)
     }
-    if(barilla == 1) {
+    if(arrowCounter == 1) {
         leftArrow.style.display = "block"
     }
-    if(barilla >= document.querySelector(".answersBox").children.length-1) {
+    if(arrowCounter >= document.querySelector(".answersBox").children.length-1) {
         rightArrow.style.display = "none"
     }
 })
 
 leftArrow.addEventListener("click", function(){
-    barilla--
-    if(document.querySelector(".answersBox").children[barilla] != undefined || barilla < document.querySelector(".answersBox").children.length){
-    document.querySelector(".answersBox").children[barilla].style.display = "block"
+    answersBox.classList.add("slide-in-right")
+    document.querySelector(".left-arrow").classList.add("flicker-in-1")
+    setTimeout(function(){ answersBox.classList.remove("slide-in-right")
+    document.querySelector(".left-arrow").classList.remove("flicker-in-1") },450)
+    arrowCounter--
+    if(document.querySelector(".answersBox").children[arrowCounter] != undefined || arrowCounter < document.querySelector(".answersBox").children.length){
+    document.querySelector(".answersBox").children[arrowCounter].style.display = "block"
     }
-    if(barilla == 0) {
+    if(arrowCounter == 0) {
         leftArrow.style.display = "none"
     }
-    if(barilla < document.querySelector(".answersBox").children.length) {
+    if(arrowCounter < document.querySelector(".answersBox").children.length) {
         rightArrow.style.display = "block"
     }
 })
