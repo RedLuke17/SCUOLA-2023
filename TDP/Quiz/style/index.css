@@ -102,12 +102,12 @@
 }
 
 .stars {
-    background: #000 url(/static/images/stars.png) repeat top center;
+    background: #000 url(https://redluke17.github.io/SCUOLA-2023/TDP/Quiz/static/images/stars.png) repeat top center;
     z-index: 0;
 }
 
 .twinkl {
-    background: transparent url(/static/images/twinkling.png) repeat top;
+    background: transparent url(https://redluke17.github.io/SCUOLA-2023/TDP/Quiz/static/images/twinkling.png) repeat top;
     z-index: 0;
 
     -moz-animation: move-twink-back 200s linear;
