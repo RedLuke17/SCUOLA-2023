@@ -3,13 +3,14 @@ package com.example.dentista;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ListaGiornalieraController {
@@ -17,10 +18,13 @@ public class ListaGiornalieraController {
     File file = new File(DataListaPazienti);
     Paziente paziente;
 
-
+    @FXML
+    private Label giornoLista;
 
     @FXML
     private ListView<String> listaGiornaliera;
+
+    ArrayList<Paziente> pazienti = new ArrayList<>();
 
     //lista dei pazienti
     @FXML
@@ -29,13 +33,33 @@ public class ListaGiornalieraController {
         /*for(Paziente paziente : pazienti){
            items.add(paziente.getCognome() + " " + paziente.getNome() + " " + paziente.getEta() + " " + paziente.getPatologia());
         }*/
-
-
+        ArrayList<Integer> giorni = new ArrayList<>();
+        int i = 0;
         try {
+
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                items.add(line);
+                String[] string = line.split(",");
+
+
+
+                giorni.add(Integer.parseInt(string[5]));
+
+                int minimo = Collections.min(giorni);
+
+
+
+                    if (minimo == giorni.get(i)) {
+                        pazienti.add(new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4], Integer.parseInt(string[5])));
+                    }
+                i++;
+                giornoLista.setText(Integer.toString(minimo));
+
+            }
+
+            for (Paziente paziente : pazienti) {
+                items.add(paziente.toString() + "\n");
             }
             scanner.close();
             listaGiornaliera.setItems(items);
@@ -51,15 +75,31 @@ public class ListaGiornalieraController {
     //dentista
     public void dentista() {
         ArrayList<Paziente> pazienti = new ArrayList<>();
-        try {
             listaGiornaliera.getItems().remove(0);
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] string = line.split("\s");
-                pazienti.add(new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4]));
-            }
-            scanner.close();
+            ArrayList<Integer> giorni = new ArrayList<>();
+            int i = 0;
+            try {
+                Scanner scanner = new Scanner(file);
+                while (scanner.hasNextLine()) {
+                    String line = scanner.nextLine();
+                    String[] string = line.split(",");
+
+
+
+                    giorni.add(Integer.parseInt(string[5]));
+
+                    int minimo = Collections.min(giorni);
+
+
+
+                    if (minimo == giorni.get(i)) {
+                        pazienti.add(new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4], Integer.parseInt(string[5])));
+                    }
+                    i++;
+                    giornoLista.setText(Integer.toString(minimo));
+
+                }
+                scanner.close();
 
             pazienti.remove(0);
 

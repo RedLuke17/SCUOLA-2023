@@ -10,11 +10,11 @@
          <font>
             <Font name="Arial Bold Italic" size="25.0" />
          </font></Label>
-      <Label fx:id="giorno" layoutX="105.0" layoutY="53.0" prefHeight="42.0" prefWidth="139.0" text="DEL GIORNO:">
+      <Label layoutX="105.0" layoutY="53.0" prefHeight="42.0" prefWidth="139.0" text="DEL GIORNO:">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="244.0" layoutY="53.0" prefHeight="42.0" prefWidth="108.0" text="null">
+      <Label fx:id="giornoLista" layoutX="244.0" layoutY="53.0" prefHeight="42.0" prefWidth="108.0" text="null">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Label>

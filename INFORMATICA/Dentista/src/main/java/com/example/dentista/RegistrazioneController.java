@@ -13,7 +13,9 @@ import javafx.stage.StageStyle;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class RegistrazioneController {
@@ -60,16 +62,19 @@ public class RegistrazioneController {
     }
     // Python >> if sas is True or giglo is False:
     public void invia() {
-        if (nome.getText().isEmpty() || cognome.getText().isEmpty() || eta.getText().isEmpty() || codiceFiscale.getText().isEmpty() || patologia.getText().isEmpty()) {
+        if (nome.getText().isEmpty() || cognome.getText().isEmpty() || eta.getText().isEmpty() || codiceFiscale.getText().isEmpty() || patologia.getText().isEmpty() || giorno.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Errore");
             alert.setContentText("Compila tutti i campi");
             alert.show();
         } else {
             int eta_ = 0;
+            LocalDate dataCorrente = LocalDate.now();
+            int giorno_ = dataCorrente.getDayOfMonth();
                 try {
                     eta_ = Integer.parseInt(eta.getText());
-                    pazienti.add(new Paziente(nome.getText(), cognome.getText(), eta_, codiceFiscale.getText(), patologia.getText()));
+                    giorno_ = Integer.parseInt(giorno.getText());
+                    pazienti.add(new Paziente(nome.getText(), cognome.getText(), eta_, codiceFiscale.getText(), patologia.getText(), giorno_));
 
                     try {
                         if (!file.exists()) {

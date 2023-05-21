@@ -17,6 +17,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class ListaController {
@@ -64,8 +65,8 @@ public class ListaController {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] string = line.split("\s");
-                pazienti.add(new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4]));
+                String[] string = line.split(",");
+                pazienti.add(new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4], Integer.parseInt(string[5])));
             }
             scanner.close();
 
