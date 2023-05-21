@@ -402,13 +402,15 @@
     margin-top: 50px;
     position: relative;
     max-width: 400px;
-    font-size:35px;
+    height: 300px;
+    font-size:25px;
     word-wrap: break-word;
 }
 
 .title h1 {
     font-family: 'Monoton', cursive;
     color:lemonchiffon;
+    letter-spacing: 10px;
 }
 
 .answer {
@@ -441,6 +443,7 @@
 
 .container {
     position: fixed;
+    z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -622,4 +625,52 @@ input[type=submit]:active {
 @keyframes move-twink-back {
     from {background-position: 0 0;}
     to { background-position: -10000px 5000px;}
+}
+
+.earth {
+    position: relative;
+    --d:300px;
+    width: var(--d);
+    height:var(--d);
+    display:inline-block;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: -20px -20px 50px 2px #000 inset, 0 0 20px 2px #000;
+    background:
+            url(https://i.stack.imgur.com/3SLqF.jpg)
+            0/auto 100%;
+    animation: spin 3s linear infinite;
+}
+
+.jupiter {
+    position: relative;
+    --d:300px;
+    width: var(--d);
+    height:var(--d);
+    display:inline-block;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: -20px -20px 50px 2px #000 inset, 0 0 20px 2px #000;
+    background:
+            url(https://i.pinimg.com/originals/b2/6c/8a/b26c8a86dceb0055a8719d9effed23bc.gif)
+            0/auto 100%;
+    animation: spin 3s linear infinite;
+}
+
+.mars {
+     position: relative;
+     --d: 300px;
+     width: var(--d);
+     height: var(--d);
+     display: inline-block;
+     margin: 5px;
+     border-radius: 50%;
+     box-shadow: -20px -20px 50px 2px #000 inset, 0 0 20px 2px #000;
+     background: url(https://t4.ftcdn.net/jpg/03/38/48/79/360_F_338487951_noDUtHlzxljulqg525A9YZAup9IEpeNS.jpg) 0/auto 100%;
+     animation: spin 3s linear infinite;
+}
+@keyframes spin {
+    to {
+        background-position:200% 0;
+    }
 }
