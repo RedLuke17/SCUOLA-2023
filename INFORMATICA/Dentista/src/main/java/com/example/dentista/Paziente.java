@@ -20,6 +20,10 @@ public class Paziente {
         this.dataRegistrazione = dataRegistrazione;
     }
 
+    public int getDataRegistrazione() {
+        return dataRegistrazione;
+    }
+
     @Override
     public String toString() {
         return nome + "," + cognome + "," + eta + "," + codiceFiscale + "," + patologia + "," + dataRegistrazione;
