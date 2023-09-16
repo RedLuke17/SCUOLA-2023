@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="590.0" styleClass="listaBG" stylesheets="@./css/index.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dentista.ListaGiornalieraController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="590.0" styleClass="listaBG" stylesheets="@./css/index.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dentista.ListaGiornalieraController">
    <children>
       <Label layoutX="24.0" layoutY="-1.0" prefHeight="30.0" prefWidth="385.0" text="LISTA DEI PAZIENTI IN ATTESA">
          <font>
@@ -26,14 +26,6 @@
       <Button fx:id="chiama" layoutX="448.0" layoutY="95.0" mnemonicParsing="false" onAction="#dentista" prefHeight="75.0" prefWidth="79.0" styleClass="buttonBG" text="CHIAMA">
          <font>
             <Font name="Arial Bold" size="14.0" />
-         </font></Button>
-      <Label layoutX="399.0" layoutY="220.0" prefHeight="0.0" prefWidth="177.0" text="AVANZA GIORNO">
-         <font>
-            <Font name="Arial Black" size="18.0" />
-         </font></Label>
-      <Button layoutX="453.0" layoutY="247.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="69.0" styleClass="buttonBG" text="AVANZA">
-         <font>
-            <Font name="System Bold" size="12.0" />
          </font></Button>
    </children>
 </AnchorPane>
