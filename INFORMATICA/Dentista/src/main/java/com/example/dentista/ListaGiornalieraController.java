@@ -19,6 +19,8 @@ public class ListaGiornalieraController {
     ArrayList<Paziente> pazienti = new ArrayList<>();
     ObservableList<String> items = FXCollections.observableArrayList();
 
+    int minimo = 0;
+
     List<Integer> giorni = new ArrayList<>();
     @FXML
     private Label giornoLista;
@@ -35,9 +37,14 @@ public class ListaGiornalieraController {
         }*/
 
         lettura(file, pazienti, giornoLista, DataListaPazienti, items);
-        scrittura(pazienti);
 
+        for (int i = 0; i < giorni.size(); i++) {
+            if (minimo == giorni.get(i)) {
+                items.add(pazienti.get(i).toString() + ":GIORNO\n");
+            }
+        }
         listaGiornaliera.setItems(items);
+        scrittura(pazienti);
     }
 
 
@@ -45,29 +52,42 @@ public class ListaGiornalieraController {
     public void dentista() {
         ArrayList<Paziente> pazienti = new ArrayList<>();
         lettura(file, pazienti, giornoLista, DataListaPazienti, items);
-        listaGiornaliera.getItems().remove(0);
-        giorni.get(0);
 
-        if (pazienti.get(0).getDataRegistrazione() == giorni.get(0)) {
-            chiama.setText("chiama");
-            pazienti.remove(0);
-            listaGiornaliera.getItems().remove(0);
-            scrittura(pazienti);
-        } else {
+        try {
+            if (pazienti.get(0).getDataRegistrazione() != giorni.get(minimo*2)) {
+                chiama.setText("chiama");
+                pazienti.remove(0);
+                scrittura(pazienti);
+                for (int i = 0; i < (minimo*2)-1; i++) {
+                    if (minimo == giorni.get(i)) {
+                        items.add(pazienti.get(i).toString() + ":GIORNO\n");
+                        listaGiornaliera.getItems().remove(items.size()-1);
+                    }
+                }
+                listaGiornaliera.setItems(items);
+                listaGiornaliera.getItems().remove(0);
+                giorni.get(0);
+            }
+        } catch (IndexOutOfBoundsException giglo) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Avanzamento Giorno");
             alert.setContentText("Avanza il giorno");
             alert.show();
             chiama.setText("avanza giorno");
-            giorni.remove(0);
-            items.clear();
+            lettura(file, pazienti, giornoLista, DataListaPazienti, items);
+            giorni.get(0);
+            for (int i = 0; i < (minimo*2)-1; i++) {
+                if (minimo == giorni.get(i)) {
+                    items.add(pazienti.get(i).toString() + ":GIORNO\n");
+                }
+            }
+            listaGiornaliera.setItems(items);
         }
     }
 
 
     public void lettura(File file, ArrayList<Paziente> pazienti, Label giornoLista, String DataListaPazienti, ObservableList<String> items) {
         giorni.clear();
-        int i = 0;
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
@@ -78,7 +98,7 @@ public class ListaGiornalieraController {
                 giorni.add(Integer.parseInt(string[5]));
 
 
-                int minimo = Collections.min(giorni);
+                minimo = Collections.min(giorni);
                 /*
                 List<Integer> giorniCopy = new ArrayList<>(giorni);
                 Collections.sort(giorniCopy);
@@ -86,11 +106,6 @@ public class ListaGiornalieraController {
 
 
                 pazienti.add(new Paziente(string[0], string[1], Integer.parseInt(string[2]), string[3], string[4], Integer.parseInt(string[5])));
-
-                if (minimo == giorni.get(i)) {
-                    items.add(pazienti.get(i).toString() + ":GIORNO\n");
-                }
-                i++;
 
 
                 pazienti.sort(Comparator.comparingInt(Paziente::getDataRegistrazione));
