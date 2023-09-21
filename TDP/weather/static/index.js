@@ -1,4 +1,6 @@
+let canvas = document.querySelector("canvas")
 let marker
+let chart
 let map
 
 navigator.geolocation.getCurrentPosition(
@@ -55,6 +57,48 @@ function fetchWeather(latitudine, longitudine) {
             if (data) {
                 let maxTemp = data.daily.temperature_2m_max[0]
                 let minTemp = data.daily.temperature_2m_min[0]
+                
+                let hourlyTemperatures = data.hourly.temperature_2m
+                let hours = data.hourly.time.slice(0, 24)
+
+                let config = {
+                    type: 'line',
+                    data: {
+                        labels: hours,
+                        datasets: [
+                            {
+                                label: 'Temperatura',
+                                data: hourlyTemperatures,
+                                fill: false,
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1,
+                                yAxisID: 'y',
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Ore'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Temperatura (°C)'
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (chart) {
+                    chart.destroy()
+                }
+                chart = new Chart(canvas, config)
+
                 marker.bindPopup(`Temperature massima: ${maxTemp}°C, Temperatura minima: ${minTemp}°C`).openPopup()
             }
         })
@@ -72,41 +116,3 @@ function selectedPoint(map, latitudine,longitudine) {
     document.querySelector("#latitudine").value = latitudine
     document.querySelector("#longitudine").value = longitudine
 }
-
-let canvas = document.querySelector("canvas")
-
-let config = {
-    type: 'line',
-    data: {
-        labels: ["January", "February", "March"],
-        datasets: [
-            {
-                label: 'Temperatura media',
-                data: [10, 20, 11.2],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1,
-                yAxisID: 'y',
-            },
-            {
-                label: 'Umidità media',
-                data: [70, 72, 66],
-                fill: false,
-                borderColor: 'rgb(255, 0, 0)',
-                tension: 0.1,
-                yAxisID: 'y1',
-            }
-        ]
-    },
-    scales: {
-        y: {
-            type: 'linear',
-            position: 'left',
-        },
-        y1: {
-            type: 'linear',
-            position: 'left'
-        }
-    }
-}
-const myChart = new Chart(canvas, config)
