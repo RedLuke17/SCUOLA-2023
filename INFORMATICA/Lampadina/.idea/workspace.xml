@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5ce9f19-771e-4307-afed-6a29d3b0aa09" name="Changes" comment="" />
+    <list default="true" id="a5ce9f19-771e-4307-afed-6a29d3b0aa09" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +32,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Utente/Desktop/SCUOLA-2023/INFORMATICA/Lampadina"
   }
 }]]></component>
   <component name="RunManager">
@@ -56,6 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669824399938</updated>
       <workItem from="1669824401038" duration="419000" />
+      <workItem from="1695303154694" duration="665000" />
     </task>
     <servers />
   </component>
