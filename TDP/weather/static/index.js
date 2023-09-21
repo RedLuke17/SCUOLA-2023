@@ -1,4 +1,5 @@
 let marker
+let map
 
 navigator.geolocation.getCurrentPosition(
     function (event) {
@@ -26,13 +27,15 @@ document.querySelector("#resetBtn").addEventListener("click", () => {
 })
 
 function createMap (lat,lng) {
-    let map = L.map('map').setView([lat, lng], 6)
+    map = L.map('map').setView([lat, lng], 6)
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map)
 
-    L.marker([lat, lng]).addTo(map)
+    fetchWeather(lat, lng)
+
+    marker = L.marker([lat, lng]).addTo(map)
 
     map.on("click", (e) => {
         let {lat, lng} = e.latlng
@@ -50,8 +53,8 @@ function fetchWeather(latitudine, longitudine) {
         .then((response) => response.json())
         .then(function (data) {
             if (data) {
-                let maxTemp = data.temperature_2m_max
-                let minTemp = data.temperature_2m_min
+                let maxTemp = data.daily.temperature_2m_max[0]
+                let minTemp = data.daily.temperature_2m_min[0]
                 marker.bindPopup(`Temperature massima: ${maxTemp}°C, Temperatura minima: ${minTemp}°C`).openPopup()
             }
         })
@@ -65,4 +68,45 @@ function selectedPoint(map, latitudine,longitudine) {
     }
 
     marker = L.marker([latitudine, longitudine]).addTo(map)
+
+    document.querySelector("#latitudine").value = latitudine
+    document.querySelector("#longitudine").value = longitudine
 }
+
+let canvas = document.querySelector("canvas")
+
+let config = {
+    type: 'line',
+    data: {
+        labels: ["January", "February", "March"],
+        datasets: [
+            {
+                label: 'Temperatura media',
+                data: [10, 20, 11.2],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1,
+                yAxisID: 'y',
+            },
+            {
+                label: 'Umidità media',
+                data: [70, 72, 66],
+                fill: false,
+                borderColor: 'rgb(255, 0, 0)',
+                tension: 0.1,
+                yAxisID: 'y1',
+            }
+        ]
+    },
+    scales: {
+        y: {
+            type: 'linear',
+            position: 'left',
+        },
+        y1: {
+            type: 'linear',
+            position: 'left'
+        }
+    }
+}
+const myChart = new Chart(canvas, config)

@@ -10,7 +10,7 @@
 <body>
     <div class="hero flex flex-col items-center justify-center h-screen bg-cover bg-center bg-grey">
         <div class="">
-            <h1 class="mb-4 flex items-center text-5xl font-extrabold dark:text-black">Weather Forecast<span class="bg-blue-100 text-blue-800 text-2xl font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">PRO</span></h1>
+            <h1 class="mb-4 flex items-center text-5xl font-extrabold dark:text-black">Weather Forecast<span class="bg-blue-100 text-blue-800 text-2xl font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">PRO-VLON</span></h1>
 
             <div id="map" class="w-[600px] h-[350px] mx-auto mt-8"></div>
 
@@ -42,10 +42,14 @@
                 <button id="resetBtn" type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Reset</button>
             </div>
         </div>
+
+        <div id="canvasWrapper">
+            <canvas></canvas>
+        </div>
     </div>
 
-    
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.js" integrity="sha512-6HrPqAvK+lZElIZ4mZ64fyxIBTsaX5zAFZg2V/2WT+iKPrFzTzvx6QAsLW2OaLwobhMYBog/+bvmIEEGXi0p1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="/static/index.js"></script>
 </body>
