@@ -33,6 +33,5 @@ public class Main {
                     break;
             }
         } while (scelta != 0);
-        System.out.println("");
     }
 }
